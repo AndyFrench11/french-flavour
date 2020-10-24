@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
 const sections = [
   { title: 'Mixes', url: '#' },
   { title: 'Music', url: '#' },
-  { title: 'Photos', url: '#' },
   { title: 'Stories', url: '#' },
+  { title: 'About me!', url: '#' },
 ];
 
 const mainFeaturedPost = {

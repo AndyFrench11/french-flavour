@@ -1,14 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Blog from './blog/Blog';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Blog from '../../blog/Blog';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import LibreBaskervilleBold from './fonts/LibreBaskerville-Bold.ttf';
+import LibreBaskervilleBold from '../../fonts/LibreBaskerville-Bold.ttf';
+import Home from '../Home/Home';
 
 function App() {
 
+  // Custom font work
   const libreBaskervilleBold = {
     fontFamily: 'Libre Baskerville',
     fontStyle: 'bold',
@@ -42,7 +41,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline/>
-      <Blog />
+      <Home />
     </ThemeProvider>
   );
 }
