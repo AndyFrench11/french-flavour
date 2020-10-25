@@ -42,7 +42,7 @@ function MainFeaturedPost(props) {
     <Paper
       className={classes.mainFeaturedPost}
       style={{ backgroundImage: `url(${OrientalBayPhoto}` }}
-      elevation={5}
+      elevation={20}
     >
 
       <div className={classes.overlay} />

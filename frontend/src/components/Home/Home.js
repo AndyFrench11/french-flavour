@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Container, Grid } from '@material-ui/core'; 
+import { Container, Divider, Grid } from '@material-ui/core'; 
 import Header from './Header';
 import LargeFeaturedPost from './LargeFeaturedPost';
 import SmallFeaturedPost from './SmallFeaturedPost';
@@ -35,7 +35,7 @@ class Home extends React.Component {
             <React.Fragment>
             <CssBaseline />
             <Container maxWidth="lg">
-              <Header title="French Flavour." sections={this.sections} />
+              <Header title="french flavour." sections={this.sections} />
               <main>
                 <LargeFeaturedPost post={mainFeaturedPost} />
                 <Grid container spacing={4}>
@@ -43,6 +43,7 @@ class Home extends React.Component {
                     <SmallFeaturedPost key={post.title} post={post} />
                   ))}
                 </Grid>
+                <Divider />
                 <Grid container spacing={5} className={classes.mainGrid}>
                   {/* <Main title="From the firehose" posts={posts} /> */}
                   {/* <Sidebar
