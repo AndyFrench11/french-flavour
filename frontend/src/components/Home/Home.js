@@ -6,6 +6,7 @@ import Header from './Header';
 import LargeFeaturedPost from './LargeFeaturedPost';
 import SmallFeaturedPost from './SmallFeaturedPost';
 import { mainFeaturedPost, featuredPosts } from '../../mockData/featuredPosts';
+import Footer from './Footer';
 
 
 
@@ -43,22 +44,15 @@ class Home extends React.Component {
                     <SmallFeaturedPost key={post.title} post={post} />
                   ))}
                 </Grid>
-                <Divider />
                 <Grid container spacing={5} className={classes.mainGrid}>
                   {/* <Main title="From the firehose" posts={posts} /> */}
-                  {/* <Sidebar
-                    title={sidebar.title}
-                    description={sidebar.description}
-                    archives={sidebar.archives}
-                    social={sidebar.social}
-                  /> */}
                 </Grid>
               </main>
             </Container>
-            {/* <Footer
-              title="Footer"
-              description="Something here to give the footer a purpose!"
-            /> */}
+            <Footer
+              title="Thanks for coming!"
+              description="Hope you enjoyed it!"
+            />
           </React.Fragment>
         )
     }
