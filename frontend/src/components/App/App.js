@@ -1,9 +1,17 @@
 import React from 'react';
-import Blog from '../../blog/Blog';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import LibreBaskervilleBold from '../../fonts/LibreBaskerville-Bold.ttf';
 import Home from '../Home/Home';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import AboutMe from '../AboutMe/AboutMe';
+import Mixes from '../Mixes/Mixes';
+import Stories from '../Stories/Stories';
 
 function App() {
 
@@ -39,10 +47,25 @@ function App() {
     });
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline/>
-      <Home />
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <CssBaseline/>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/mixes">
+            <Mixes />
+          </Route>
+          <Route path="/stories">
+            <Stories />
+          </Route>
+          <Route path="/aboutme">
+            <AboutMe />
+          </Route>
+        </Switch>
+      </ThemeProvider>
+    </Router>
   );
 }
 
