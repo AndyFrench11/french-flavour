@@ -1,62 +1,57 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Container, Divider, Grid } from '@material-ui/core'; 
+import { Container, Grid } from '@material-ui/core';
 import Header from './Header';
 import LargeFeaturedPost from './LargeFeaturedPost';
 import SmallFeaturedPost from './SmallFeaturedPost';
 import { mainFeaturedPost, featuredPosts } from '../../mockData/featuredPosts';
 import Footer from './Footer';
+import MainPosts from './MainPosts';
+import post1 from '../../posts/post1';
+import post2 from '../../posts/post2';
 
+const useStyles = makeStyles((theme) => ({
+  mainGrid: {
+    marginTop: theme.spacing(3),
+  },
+}));
 
+function Home() {
 
-class Home extends React.Component {
+  const classes = useStyles();
+  const sections = [
+    { title: 'Mixes', url: 'mixes' },
+    { title: 'Music', url: 'mixes' },
+    { title: 'Stories', url: 'stories' },
+    { title: 'About me!', url: 'aboutme' },
+  ];
 
-    useStyles() {
-        return makeStyles((theme) => ({
-            mainGrid: {
-            marginTop: theme.spacing(3),
-            },
-        }));
-    }
+  const posts = [post1, post2];
 
-    sections = [
-        { title: 'Mixes', url: 'mixes' },
-        { title: 'Music', url: 'mixes' },
-        { title: 'Stories', url: 'stories' },
-        { title: 'About me!', url: 'aboutme' },
-      ];
-
-    
-
-    render() {
-        const classes = this.useStyles();
-
-        return (
-            <React.Fragment>
-            <CssBaseline />
-            <Container maxWidth="lg">
-              <Header title="french flavour." sections={this.sections} />
-              <main>
-                <LargeFeaturedPost post={mainFeaturedPost} />
-                <Grid container spacing={4}>
-                  {featuredPosts.map((post) => (
-                    <SmallFeaturedPost key={post.title} post={post} />
-                  ))}
-                </Grid>
-                <Grid container spacing={5} className={classes.mainGrid}>
-                  {/* <Main title="From the firehose" posts={posts} /> */}
-                </Grid>
-              </main>
-            </Container>
-            <Footer
-              title="Thanks for coming!"
-              description="Hope you enjoyed it!"
-            />
-          </React.Fragment>
-        )
-    }
-
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="lg">
+        <Header title="french flavour." sections={sections} />
+        <main>
+          <LargeFeaturedPost post={mainFeaturedPost} />
+          <Grid container spacing={4}>
+            {featuredPosts.map((post) => (
+              <SmallFeaturedPost key={post.title} post={post} />
+            ))}
+          </Grid>
+          <Grid container spacing={5} className={classes.mainGrid}>
+            <MainPosts title="From the firehose" posts={posts} />
+          </Grid>
+        </main>
+      </Container>
+      <Footer
+        title="Thanks for coming!"
+        description="Hope you enjoyed it!"
+      />
+    </React.Fragment>
+  )
 }
 
 export default Home;

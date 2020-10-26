@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import {
     Toolbar,
     Typography,
-    Link,
     Divider
 } from '@material-ui/core';
 
@@ -71,7 +70,8 @@ const useStyles = makeStyles((theme) => ({
 function Header(props) {
 
     const classes = useStyles()
-    const { title, sections } = props;
+    const { title } = props;
+    // const { title, sections } = props;
 
     return (
         <React.Fragment >
@@ -86,6 +86,7 @@ function Header(props) {
                 </Typography>
             </Toolbar >
             <Divider />
+            {/* TODO Make use of the sections properly. */}
             <div className={classes.toolbarSecondary} >
                 <ul className={classes.unorderedList}>
                     <li className={classes.unorderedList}><a className={classes.aComponent} href="mixes">Mixes</a></li>

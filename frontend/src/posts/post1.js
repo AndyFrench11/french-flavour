@@ -1,6 +1,7 @@
-# New feature
+export default `
+# October Update
 
-#### March 14, 2020 by [Tom](/)
+#### October 26, 2020 by Andy French
 
 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod.
@@ -15,3 +16,4 @@ Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus si
 Aenean lacinia bibendum nulla sed consectetur.
 
 Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+`;
