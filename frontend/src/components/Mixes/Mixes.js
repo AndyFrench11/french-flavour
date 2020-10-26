@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Canvas from './Canvas';
+import WaveformPlayer from './WaveformPlayer/WaveformPlayer';
 
 function Mixes() {
 
     return (
-        <Canvas/>
+        <WaveformPlayer/>
     )
 
 }

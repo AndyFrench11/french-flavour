@@ -7,7 +7,7 @@ import BlogPost from './BlogPost';
 const useStyles = makeStyles((theme) => ({
     markdown: {
       ...theme.typography.body2,
-      padding: theme.spacing(3, 0),
+      padding: theme.spacing(3, 0)
     },
   }));
 

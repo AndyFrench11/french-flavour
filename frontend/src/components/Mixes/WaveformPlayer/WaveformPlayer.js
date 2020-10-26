@@ -1,7 +1,7 @@
 import * as React from 'react';
-import './Canvas.css';
+import './WaveformPlayer.css';
 
-function Canvas() {
+function WaveformPlayer() {
      // Set up audio context
      window.AudioContext = window.AudioContext || window.webkitAudioContext;
      const audioContext = new AudioContext();
@@ -106,4 +106,4 @@ function Canvas() {
 
 }
 
-export default Canvas;
+export default WaveformPlayer;

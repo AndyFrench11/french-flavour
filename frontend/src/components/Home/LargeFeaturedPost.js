@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: 'url(https://source.unsplash.com/random)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
+    backgroundPosition: 'center'
   },
   overlay: {
     position: 'absolute',
@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 0,
     },
   },
+  mainHeader: {
+    fontFamily: 'Open Sans'
+  }
 }));
 
 function MainFeaturedPost(props) {
@@ -57,10 +60,10 @@ function MainFeaturedPost(props) {
               {post.title}
             </Typography>
             <Divider/>
-            <Typography variant="h5" color="inherit" paragraph>
+            <Typography variant="h5" color="inherit" paragraph className={classes.mainHeader}>
               {post.description}
             </Typography>
-            <Link variant="subtitle1" href="#" color="inherit">
+            <Link variant="subtitle1" href="#" color="inherit" className={classes.mainHeader}>
               {post.linkText}
             </Link>
           </div>

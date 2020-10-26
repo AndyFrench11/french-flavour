@@ -7,6 +7,9 @@ const styles = (theme) => ({
     listItem: {
         marginTop: theme.spacing(1),
     },
+    bodystuff: {
+        fontFamily: 'Open Sans'
+    }
 });
 
 const options = {
@@ -44,7 +47,7 @@ const options = {
                 const { classes, ...other } = props;
                 return (
                     <li className={classes.listItem}>
-                        <Typography component="span" {...other} />
+                        <Typography component="span" {...other} className={classes.bodystuff}/>
                     </li>
                 );
             }),
@@ -53,5 +56,5 @@ const options = {
 };
 
 export default function BlogPost(props) {
-return <Markdown options={options} {...props}/>;
+return <Markdown options={options} {...props} />;
 }
