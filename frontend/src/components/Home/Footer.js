@@ -5,25 +5,15 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://www.facebook.com/French-Flavour-104281558094100">
-        Andy French
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles((theme) => ({
   footer: {
     backgroundColor: theme.palette.background.paper,
-    // marginTop: theme.spacing(8),
+    marginTop: theme.spacing(8),
     padding: theme.spacing(6, 0),
   },
+  openSansFont: {
+    fontFamily: 'Open Sans'
+  }
 }));
 
 function Footer(props) {
@@ -33,7 +23,7 @@ function Footer(props) {
   return (
     <footer className={classes.footer}>
       <Container maxWidth="lg">
-        <Typography variant="h6" align="center" gutterBottom>
+        <Typography variant="h6" align="center" gutterBottom className={classes.openSansFont}>
           {title}
         </Typography>
         <Typography
@@ -41,10 +31,18 @@ function Footer(props) {
           align="center"
           color="textSecondary"
           component="p"
+          className={classes.openSansFont}
         >
           {description}
         </Typography>
-        <Copyright />
+        <Typography variant="body2" color="textSecondary" align="center" className={classes.openSansFont}>
+          {'Copyright © '}
+          <Link color="inherit" href="https://www.facebook.com/French-Flavour-104281558094100" className={classes.openSansFont}>
+            Andy French
+      </Link>{' '}
+          {new Date().getFullYear()}
+          {'.'}
+        </Typography>
       </Container>
     </footer>
   );

@@ -2,14 +2,12 @@ import * as React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Typography, Link } from '@material-ui/core';
 import Markdown from 'markdown-to-jsx';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 const styles = (theme) => ({
     listItem: {
         marginTop: theme.spacing(1),
     },
-    bodystuff: {
-        fontFamily: 'Open Sans'
-    }
 });
 
 const options = {
@@ -47,7 +45,7 @@ const options = {
                 const { classes, ...other } = props;
                 return (
                     <li className={classes.listItem}>
-                        <Typography component="span" {...other} className={classes.bodystuff}/>
+                        <Typography component="span" {...other}/>
                     </li>
                 );
             }),
@@ -56,5 +54,19 @@ const options = {
 };
 
 export default function BlogPost(props) {
-return <Markdown options={options} {...props} />;
+
+    const theme = createMuiTheme({
+        palette: {
+          type: 'dark',
+        },
+        typography: {
+          fontFamily: 'Open Sans',
+        },
+      });
+
+return (
+    <ThemeProvider theme={theme}>
+        <Markdown options={options} {...props} />
+    </ThemeProvider>
+);
 }
