@@ -10,6 +10,7 @@ import {
     Hidden,
     CardMedia
 } from '@material-ui/core';
+import OrientalBayPhoto from '../../images/OrientalBay.png'
 
 const useStyles = makeStyles({
     card: {
@@ -50,7 +51,7 @@ function SmallFeaturedPost(props) {
                     <Hidden smDown>
                         <CardMedia
                             className={classes.cardMedia}
-                            image={post.image}
+                            image={OrientalBayPhoto}
                             title={post.imageText}
                         />
                     </Hidden>
