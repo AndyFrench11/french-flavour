@@ -42,7 +42,7 @@ function Home() {
             ))}
           </Grid>
           <Grid container spacing={5} className={classes.mainGrid}>
-            <MainPosts title="From the firehose" posts={posts} />
+            <MainPosts title="Updates" posts={posts} />
           </Grid>
         </main>
       </Container>

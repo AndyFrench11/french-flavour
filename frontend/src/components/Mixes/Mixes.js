@@ -1,11 +1,10 @@
 import * as React from 'react';
+import Canvas from './Canvas';
 
 function Mixes() {
 
     return (
-        <>
-            <h2>Mixes baby!</h2>
-        </>
+        <Canvas/>
     )
 
 }
