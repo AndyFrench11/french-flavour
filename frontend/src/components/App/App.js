@@ -10,6 +10,7 @@ import {
 import AboutMe from '../AboutMe/AboutMe';
 import Mixes from '../Mixes/Mixes';
 import Stories from '../Stories/Stories';
+import Music from '../Music/Music';
 
 function App() {
 
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path="/mixes">
             <Mixes />
+          </Route>
+          <Route path="/music">
+            <Music />
           </Route>
           <Route path="/stories">
             <Stories />

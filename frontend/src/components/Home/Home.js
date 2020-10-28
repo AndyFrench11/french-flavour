@@ -22,7 +22,7 @@ function Home() {
   const classes = useStyles();
   const sections = [
     { title: 'Mixes', url: 'mixes' },
-    { title: 'Music', url: 'mixes' },
+    { title: 'Music', url: 'music' },
     { title: 'Stories', url: 'stories' },
     { title: 'About me!', url: 'aboutme' },
   ];
