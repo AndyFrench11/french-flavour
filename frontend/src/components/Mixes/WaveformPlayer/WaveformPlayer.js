@@ -124,6 +124,7 @@ function WaveformPlayer() {
         ctx.arc(x + width / 2, height, width / 2, Math.PI, 0, isEven);
         ctx.lineTo(x + width, 0);
         ctx.stroke();
+        
         vertices.push({
             x: x,
             y: 0

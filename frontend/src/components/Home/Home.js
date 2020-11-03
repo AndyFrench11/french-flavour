@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import { Container, Grid } from '@material-ui/core';
 import Header from './Header';
 import LargeFeaturedPost from './LargeFeaturedPost';
@@ -30,8 +29,7 @@ function Home() {
   const posts = [post1, post2];
 
   return (
-    <React.Fragment>
-      <CssBaseline />
+    <>
       <Container maxWidth="lg">
         <Header title="french flavour." sections={sections} />
         <main>
@@ -50,7 +48,7 @@ function Home() {
         title="Thanks for coming!"
         description="Hope you enjoyed it!"
       />
-    </React.Fragment>
+    </>
   )
 }
 

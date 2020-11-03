@@ -45,7 +45,7 @@ const options = {
                 const { classes, ...other } = props;
                 return (
                     <li className={classes.listItem}>
-                        <Typography component="span" {...other}/>
+                        <Typography component="span" {...other} />
                     </li>
                 );
             }),
@@ -57,16 +57,16 @@ export default function BlogPost(props) {
 
     const theme = createMuiTheme({
         palette: {
-          type: 'dark',
+            type: 'dark',
         },
         typography: {
-          fontFamily: 'Open Sans',
+            fontFamily: 'Open Sans',
         },
-      });
+    });
 
-return (
-    <ThemeProvider theme={theme}>
-        <Markdown options={options} {...props} />
-    </ThemeProvider>
-);
+    return (
+        <ThemeProvider theme={theme}>
+            <Markdown options={options} {...props} />
+        </ThemeProvider>
+    );
 }

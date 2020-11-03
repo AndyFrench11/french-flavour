@@ -40,8 +40,10 @@ function MainFeaturedPost(props) {
   const classes = useStyles();
   const { post } = props;
 
+  // TODO Make this into a carousel of latest content
+
   return (
-    //   TODO Make this into a carousel of latest content
+    
     <Paper
       className={classes.mainFeaturedPost}
       style={{ backgroundImage: `url(${OrientalBayPhoto}` }}
