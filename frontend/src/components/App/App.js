@@ -19,7 +19,7 @@ function App() {
         type: 'dark',
       },
       typography: {
-        fontFamily: ['Libre Baskerville', 'Open Sans'],
+        fontFamily: ['Libre Baskerville', 'Lato'],
         fontWeightRegular: 300
       },
     });

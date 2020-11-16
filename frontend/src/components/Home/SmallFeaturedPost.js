@@ -22,6 +22,9 @@ const useStyles = makeStyles({
     cardMedia: {
         width: 160,
     },
+    bodyFont: {
+        fontFamily: 'Lato'
+    }
 });
 
 function SmallFeaturedPost(props) {
@@ -40,10 +43,10 @@ function SmallFeaturedPost(props) {
                             <Typography variant="subtitle1" color="textSecondary">
                                 {post.date}
                             </Typography>
-                            <Typography variant="subtitle1" paragraph>
+                            <Typography variant="subtitle1" paragraph className={classes.bodyFont}>
                                 {post.description}
                             </Typography>
-                            <Typography variant="subtitle1" color="inherit">
+                            <Typography variant="subtitle1" color="inherit" className={classes.bodyFont}>
                                 Continue reading...
                             </Typography>
                         </CardContent>

@@ -8,32 +8,44 @@ const styles = (theme) => ({
     listItem: {
         marginTop: theme.spacing(1),
     },
+    headerFont: {
+        fontFamily: 'Libre Baskerville'
+    }
 });
 
 const options = {
     overrides: {
         h1: {
-            component: Typography,
-            props: {
-                gutterBottom: true,
-                variant: 'h4',
-            },
+            component: withStyles(styles)((props) => {
+                const { classes, children } = props;
+                return (
+                    <Typography gutterBottom={true} variant='h4' className={classes.headerFont}> {children[0]} </Typography>
+                );
+            }),
         },
         h2: {
-            component: Typography,
-            props: { gutterBottom: true, variant: 'h6' },
+            component: withStyles(styles)((props) => {
+                const { classes, children } = props;
+                return (
+                    <Typography gutterBottom={true} variant='h6' className={classes.headerFont}> {children[0]} </Typography>
+                );
+            }),
         },
         h3: {
-            component: Typography,
-            props: { gutterBottom: true, variant: 'subtitle1' },
+            component: withStyles(styles)((props) => {
+                const { classes, children } = props;
+                return (
+                    <Typography gutterBottom={true} variant='subtitle1' className={classes.headerFont}> {children[0]} </Typography>
+                );
+            }),
         },
         h4: {
-            component: Typography,
-            props: {
-                gutterBottom: true,
-                variant: 'caption',
-                paragraph: true,
-            },
+            component: withStyles(styles)((props) => {
+                const { classes, children } = props;
+                return (
+                    <Typography gutterBottom={true} variant='caption' paragraph={true} className={classes.headerFont}> {children[0]} </Typography>
+                );
+            }),
         },
         p: {
             component: Typography,
@@ -60,7 +72,7 @@ export default function BlogPost(props) {
             type: 'dark',
         },
         typography: {
-            fontFamily: 'Open Sans',
+            fontFamily: 'Lato',
         },
     });
 

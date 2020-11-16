@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   mainHeader: {
-    fontFamily: 'Open Sans'
+    fontFamily: 'Lato'
   }
 }));
 
@@ -47,7 +47,7 @@ function MainFeaturedPost(props) {
     <Paper
       className={classes.mainFeaturedPost}
       style={{ backgroundImage: `url(${OrientalBayPhoto}` }}
-      elevation={20}
+      elevation={10}
     >
 
       <div className={classes.overlay} />
