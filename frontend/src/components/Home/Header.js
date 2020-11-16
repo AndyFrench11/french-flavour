@@ -92,7 +92,7 @@ function Header(props) {
                     <li className={classes.unorderedList}><a className={classes.aComponent} href="mixes">Mixes</a></li>
                     <li className={classes.twoComponent}><a className={classes.aComponent} href="music">Music</a></li>
                     <li className={classes.threeComponent}><a className={classes.aComponent} href="stories">Stories</a></li>
-                    <li className={classes.fourComponent}><a className={classes.aComponent} href="aboutme">About me!</a></li>
+                    <li className={classes.fourComponent}><a className={classes.aComponent} href="aboutme">Photos</a></li>
                     <hr className={classes.hrComponent} />
                 </ul>
                 {/* {sections.map((section) => (

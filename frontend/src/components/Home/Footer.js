@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(6, 0),
   },
   openSansFont: {
-    fontFamily: 'Open Sans'
+    fontFamily: 'Lato'
   }
 }));
 
@@ -23,7 +23,7 @@ function Footer(props) {
   return (
     <footer className={classes.footer}>
       <Container maxWidth="lg">
-        <Typography variant="h6" align="center" gutterBottom className={classes.openSansFont}>
+        <Typography variant="h6" align="center" gutterBottom>
           {title}
         </Typography>
         <Typography

@@ -1,16 +1,14 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Grid, Paper } from '@material-ui/core';
+import { Container, Grid, Paper, Typography, Divider, Link } from '@material-ui/core';
 import Header from './Header';
-import LargeFeaturedPost from './LargeFeaturedPost';
-import SmallFeaturedPost from './SmallFeaturedPost';
-import { mainFeaturedPost, featuredPosts } from '../../mockData/featuredPosts';
 import Footer from './Footer';
 import MainPosts from './MainPosts';
-import post1 from '../../posts/post1';
-import post2 from '../../posts/post2';
-import MainMainPhoto from '../../images/MainMainPhoto.jpeg';
+import post1 from '../../posts/NovemberPost';
 import MainPhotoUntagged from '../../images/MainPhotoUntagged.jpeg';
+import frenchFlavourLogoCropped from '../../images/frenchFlavourLogoCropped.png';
+import transparentFFLogo from '../../images/transparentFFLogo.png';
+import yellowlogo from '../../images/yellowlogo.png';
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -24,8 +22,23 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: 'center',
   },
   imageContainer: {
-    height: '800px'
-  }
+    height: '600px'
+  },
+  overlay: {
+    top: 0,
+    bottom: 0,
+    right: 0,
+    left: 0,
+    backgroundColor: 'rgba(0,0,0,.2)',
+  },
+  mainFeaturedPostContent: {
+    position: 'relative',
+    padding: theme.spacing(3),
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(6),
+      paddingRight: 0,
+    },
+  },
 }));
 
 function Home() {
@@ -35,10 +48,10 @@ function Home() {
     { title: 'Mixes', url: 'mixes' },
     { title: 'Music', url: 'music' },
     { title: 'Stories', url: 'stories' },
-    { title: 'About me!', url: 'aboutme' },
+    { title: 'Photos', url: 'aboutme' },
   ];
 
-  const posts = [post1, post2];
+  const posts = [post1];
 
   return (
     <>
@@ -48,6 +61,28 @@ function Home() {
       >
         <Container maxWidth="fixed" className={classes.imageContainer}>
             <Header title="french flavour." sections={sections} />
+        </Container>
+        <Container maxWidth="lg">
+          <div className={classes.overlay} />
+          <Grid container>
+            <Grid item md={6}>
+              <div className={classes.mainFeaturedPostContent}>
+                <Typography
+                  component="h1"
+                  variant="h3"
+                  color="inherit"
+                  gutterBottom
+                >
+                  An intersection of music production, mixing, photography and storytelling.
+                </Typography>
+                <Divider />
+                <br/>
+                <Typography variant="h5" color="inherit" paragraph className={classes.mainHeader}>
+                  Here to vibe. All the time.
+                </Typography>
+              </div>
+            </Grid>
+          </Grid>
         </Container>
       </Paper>
       {/* <Container maxWidth="lg">
@@ -60,7 +95,17 @@ function Home() {
       </Container> */}
       <Container maxWidth="lg">
         <Grid container spacing={5} className={classes.mainGrid}>
-          <MainPosts title="Stories" posts={posts} />
+          <img src={frenchFlavourLogoCropped}></img>
+          {/* <img src={frenchFlavourLogoCropped}></img> */}
+        </Grid>
+
+        {/* <Grid container spacing={5} className={classes.mainGrid}>
+          <img src={yellowlogo}></img>
+        </Grid> */}
+        
+
+        <Grid container spacing={5} className={classes.mainGrid}>
+          <MainPosts title="Recent Updates" posts={posts} />
         </Grid>
       </Container>
       <Footer

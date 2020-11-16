@@ -11,6 +11,7 @@ import AboutMe from '../AboutMe/AboutMe';
 import Mixes from '../Mixes/Mixes';
 import Stories from '../Stories/Stories';
 import Music from '../Music/Music';
+import ErrorPage from '../ErrorPage/ErrorPage';
 
 function App() {
 
@@ -43,6 +44,9 @@ function App() {
           </Route>
           <Route path="/aboutme">
             <AboutMe />
+          </Route>
+          <Route path="/error">
+            <ErrorPage />
           </Route>
         </Switch>
       </ThemeProvider>
