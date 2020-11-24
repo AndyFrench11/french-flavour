@@ -40,7 +40,7 @@ function WaveformPlayer() {
             .then(response => response.arrayBuffer())
             .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
             .then(audioBuffer => draw(normalizeData(filterData(audioBuffer))))
-            .then(audioVertices => animateAudio(audioVertices));
+            .then(drawingData => animateAudio(drawingData));
     };
 
     /**
@@ -50,7 +50,7 @@ function WaveformPlayer() {
      */
     const filterData = audioBuffer => {
         const rawData = audioBuffer.getChannelData(0); // We only need to work with one channel of data
-        const samples = 20; // Number of samples we want to have in our final data set
+        const samples = 100; // Number of samples we want to have in our final data set
         const blockSize = Math.floor(rawData.length / samples); // the number of samples in each subdivision
         const filteredData = [];
         for (let i = 0; i < samples; i++) {
@@ -88,7 +88,7 @@ function WaveformPlayer() {
         canvas.height = (canvas.offsetHeight + padding * 2) * dpr;
         const ctx = canvas.getContext("2d");
         ctx.scale(dpr, dpr);
-        ctx.translate(0, canvas.offsetHeight / 2 + padding); // set Y = 0 to be in the middle of the canvas
+        ctx.translate(0, canvas.offsetHeight / 3 + padding); // set Y = 0 to be in the middle of the canvas
 
         // draw the line segments
         var vertices = [];
@@ -103,7 +103,10 @@ function WaveformPlayer() {
             }
             drawLineSegment(ctx, x, height, width, (i + 1) % 2, vertices);
         }
-        return vertices;
+        return {
+            vertices: vertices, 
+            width: width
+        };
     };
 
     /**
@@ -143,17 +146,19 @@ function WaveformPlayer() {
         });
     };
 
-    drawAudio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/shoptalk-clip.mp3');
+    drawAudio('Kings Of The Rollers - You Got Me (S.P.Y Remix).mp3');
 
-    function animateAudio(vertices) {
+    function animateAudio(drawingData) {
+        const vertices = drawingData.vertices;
+        const width = drawingData.width;
         // variable to hold how many frames have elapsed in the animation
         var t = 1;
 
         // set some style
         const canvas = document.querySelector("canvas");
         const ctx = canvas.getContext("2d");
-        ctx.lineWidth = 5;
-        ctx.strokeStyle = "red";
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = "#38b6ff";
         // calculate incremental points along the path
         var points = calcWaypoints(vertices);
         // extend the line from start to finish with animation
@@ -181,7 +186,7 @@ function WaveformPlayer() {
         }
 
 
-        function animate() {
+        async function animate() {
             if (t < points.length - 1) {
                 requestAnimationFrame(animate);
             }
@@ -192,12 +197,12 @@ function WaveformPlayer() {
             ctx.lineTo(points[t].x, points[t].y);
             ctx.stroke();
             // increment "t" to get the next waypoint
-            t++;
+            t += 1;
         }
     }
 
     return (
-        <canvas></canvas>
+        <canvas width={600}></canvas>
     )
 
 }
