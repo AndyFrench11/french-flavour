@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: 'center',
   },
   imageContainer: {
-    height: '600px'
+    height: '450px'
   },
   overlay: {
     top: 0,

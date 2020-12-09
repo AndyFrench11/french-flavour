@@ -25,32 +25,42 @@ const useStyles = makeStyles((theme) => ({
     unorderedList: {
         display: 'inline',
         textAlign: 'center',
-        paddingInlineStart: '0px'
+        paddingInlineStart: '0px',
+        "&:hover ~ hr": {
+            marginLeft: '0%'
+        }
     },
     twoComponent: {
         display: 'inline',
         textAlign: 'center',
         "&:hover ~ hr": {
-            marginLeft: '25%'
+            marginLeft: '20%'
         }
     },
     threeComponent: {
         display: 'inline',
         textAlign: 'center',
         "&:hover ~ hr": {
-            marginLeft: '50%'
+            marginLeft: '40%'
         }
     },
     fourComponent: {
         display: 'inline',
         textAlign: 'center',
         "&:hover ~ hr": {
-            marginLeft: '75%'
+            marginLeft: '60%'
+        }
+    },
+    fiveComponent: {
+        display: 'inline',
+        textAlign: 'center',
+        "&:hover ~ hr": {
+            marginLeft: '80%'
         }
     },
     aComponent: {
         display: 'inline-block',
-        width: '25%',
+        width: '20%',
         padding: '.75rem 0',
         textDecoration: 'none',
         color: '#FFFFFF',
@@ -58,7 +68,8 @@ const useStyles = makeStyles((theme) => ({
     },
     hrComponent: {
         height: '.1rem',
-        width: '25%',
+        marginLeft: '40%',
+        width: '20%',
         margin: '0',
         background: 'white',
         border: 'none',
@@ -93,8 +104,9 @@ function Header(props) {
                 <ul className={classes.unorderedList}>
                     <li className={classes.unorderedList}><a className={classes.aComponent} href="mixes">Mixes</a></li>
                     <li className={classes.twoComponent}><a className={classes.aComponent} href="stories">Stories</a></li>
-                    <li className={classes.threeComponent}><a className={classes.aComponent} href="photography">Photography</a></li>
-                    <li className={classes.fourComponent}><a className={classes.aComponent} href="music">Music</a></li>
+                    <li className={classes.threeComponent}><a className={classes.aComponent} href="/">Home</a></li>
+                    <li className={classes.fourComponent}><a className={classes.aComponent} href="photography">Photography</a></li>
+                    <li className={classes.fiveComponent}><a className={classes.aComponent} href="music">Music</a></li>
                     <hr className={classes.hrComponent} />
                 </ul>
                 {/* {sections.map((section) => (
