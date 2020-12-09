@@ -6,6 +6,7 @@ import Footer from '../Shared/Footer';
 import MainPosts from './MainPosts';
 import post1 from '../../posts/NovemberPost1';
 import MainPhotoUntagged from '../../images/MainPhotoUntagged.jpeg';
+import FrenchFlavourLogo from '../../images/frenchFlavourLogoCropped.png';
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -78,13 +79,14 @@ function Home() {
       </Paper>
       <Container maxWidth="lg">
 
-        {/* <img src={frenchFlavourLogoCropped}/> */}
+        <img src={FrenchFlavourLogo}/>
+
+        Chuck in something like - Hey I'm Andy, and welcome to French Flavour!
+        CHuck in a photo of me as well
+        Talk about interests and inspiration to make this
 
         {/* INSERT A GRID LIST OF IMAGES */}
 
-        <Grid container spacing={5} className={classes.mainGrid}>
-          <MainPosts title="Recent Updates" posts={posts} />
-        </Grid>
       </Container>
       <Footer
         title="Thanks for coming!"
