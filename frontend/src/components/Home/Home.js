@@ -4,7 +4,7 @@ import { Container, Grid, Paper, Typography, Divider } from '@material-ui/core';
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer';
 import MainPosts from './MainPosts';
-import post1 from '../../posts/NovemberPost';
+import post1 from '../../posts/NovemberPost1';
 import MainPhotoUntagged from '../../images/MainPhotoUntagged.jpeg';
 
 const useStyles = makeStyles((theme) => ({

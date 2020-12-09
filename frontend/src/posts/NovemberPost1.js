@@ -1,5 +1,5 @@
 export default `
-# November Update
+# Time to reflect!
 
 #### November 15th, 2020 by Andy French
 

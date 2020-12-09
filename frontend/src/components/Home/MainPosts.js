@@ -22,9 +22,12 @@ function MainPosts(props) {
           </Typography>
           <Divider />
           {posts.map((post) => (
+            <>
+            <Divider />
             <BlogPost className={classes.markdown} key={post.substring(0, 40)}>
               {post}
             </BlogPost>
+            </>
           ))}
         </Grid>
       );
