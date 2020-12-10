@@ -1,8 +1,8 @@
 import * as React from 'react';
-import WaveformPlayer from './WaveformPlayer/WaveformPlayer';
 import { Container } from '@material-ui/core';
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer';
+import WaveformPlayerV2 from './WaveformPlayerV2';
 
 function Mixes() {
 
@@ -12,7 +12,7 @@ function Mixes() {
                 <Header title="french flavour."/>
             </Container>
             <Container maxWidth="lg">
-                <WaveformPlayer />
+                <WaveformPlayerV2 />
             </Container>
             <Footer
                 title="Thanks for coming!"
