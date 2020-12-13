@@ -69,7 +69,7 @@ function Home() {
                 </Typography>
                 <Divider />
                 <br/>
-                <Typography variant="h5" color="inherit" paragraph className={classes.mainHeader}>
+                <Typography variant="h5" color="inherit" paragraph>
                   Here to vibe. All the time!
                 </Typography>
               </div>
@@ -78,12 +78,22 @@ function Home() {
         </Container>
       </Paper>
       <Container maxWidth="lg">
+        <Grid container>
+          <Grid item md={6}>
+            <img src={FrenchFlavourLogo}/>
+          </Grid>
+          <Grid item md={6}>
+            <img src={FrenchFlavourLogo}/>
+          </Grid>
+        </Grid>
 
-        <img src={FrenchFlavourLogo}/>
-
+      {
+      /* 
         Chuck in something like - Hey I'm Andy, and welcome to French Flavour!
         CHuck in a photo of me as well
-        Talk about interests and inspiration to make this
+        Talk about interests and inspiration to make this 
+      */
+      }
 
         {/* INSERT A GRID LIST OF IMAGES */}
 
@@ -91,6 +101,7 @@ function Home() {
       <Footer
         title="Thanks for coming!"
         description="Hope you enjoyed it!"
+        isSticky={false}
       />
     </>
   )

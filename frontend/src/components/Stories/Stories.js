@@ -37,6 +37,7 @@ function Stories() {
             <Footer
                 title="Thanks for coming!"
                 description="Hope you enjoyed it!"
+                isSticky={false}
             />
         </>
     )
