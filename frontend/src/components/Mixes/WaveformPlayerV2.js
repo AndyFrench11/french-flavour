@@ -1,36 +1,62 @@
 import * as React from 'react';
-import WaveformPlayer from './WaveformPlayer/WaveformPlayer';
 import { Container } from '@material-ui/core';
-import Header from '../Shared/Header';
-import Footer from '../Shared/Footer';
 import offender from '../../audio/Offender.mp3';
 import WaveSurfer from 'wavesurfer.js';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
+import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 
 
-function createWaveform() {
-    var wavesurfer = WaveSurfer.create({
-        container: '#waveform',
-        waveColor: 'white',
-        progressColor: '#38b6ff'
-    });
+class WaveformPlayerV2 extends React.Component {
+    
+    constructor(props) {
+        super(props)
+        this.state = {
+            wavesurfer: null
+        }
+    }
 
-    wavesurfer.load(offender);
+    createWaveform = () => {
+        var wavesurfer = WaveSurfer.create({
+            container: '#waveform',
+            waveColor: 'white',
+            progressColor: '#38b6ff'
+        });
+    
+        wavesurfer.load(offender);
 
-    wavesurfer.on('ready', function () {
-        wavesurfer.play();
-    });
+        this.setState({ wavesurfer: wavesurfer })
+    
+    }
 
-}
+    playSong = () => {
+        const { wavesurfer } = this.state;
+        wavesurfer.play()
+    }
 
-function WaveformPlayerV2() {
+    pauseSong = () => {
+        const { wavesurfer } = this.state;
+        wavesurfer.pause()
+    }
 
-    return (
-        <>
-            <div id='waveform'>
-                <button onClick={createWaveform}></button>
-            </div>
-        </>
-    )
+    render() {
+        return (
+            <>
+                <div id='waveform'>
+                </div>
+                <IconButton variant="outlined" component="span" onClick={this.playSong}>
+                    <PlayCircleOutlineIcon />
+                </IconButton>
+                <IconButton variant="outlined" component="span" onClick={this.pauseSong}>
+                    <PauseCircleOutlineIcon />
+                </IconButton>
+                {this.state.wavesurfer ? null: <button onClick={this.createWaveform}>Display Waveform</button>}
+                
+            </>
+        )
+
+    }
 
 }
 
