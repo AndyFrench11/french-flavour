@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { Container } from '@material-ui/core';
+import { Container, Paper, Grid, Typography, Divider } from '@material-ui/core';
 import offender from '../../audio/Offender.mp3';
 import WaveSurfer from 'wavesurfer.js';
+import CursorPlugin from "wavesurfer.js/dist/plugin/wavesurfer.cursor.min";
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
-import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
+import PlayCircleIcon from '@material-ui/icons/PlayCircleFilled';
+import PauseCircleIcon from '@material-ui/icons/PauseCircleFilled';
 
 
 class WaveformPlayerV2 extends React.Component {
@@ -13,15 +14,36 @@ class WaveformPlayerV2 extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            wavesurfer: null
+            wavesurfer: null,
+            isPlaying: false
         }
     }
 
     createWaveform = () => {
+
         var wavesurfer = WaveSurfer.create({
-            container: '#waveform',
-            waveColor: 'white',
-            progressColor: '#38b6ff'
+            container: document.querySelector('#waveform'),
+            waveColor: '#ffffff',
+            progressColor: '#38b6ff',
+            barWidth: 3,
+            barRadius: 3,
+            height: 200,
+            barGap: 3,
+            plugins: [
+                CursorPlugin.create({
+                    showTime: true,
+                    opacity: 1,
+                    color: '#38b6ff',
+                    customShowTimeStyle: {
+                        'background-color': '#000',
+                        color: '#fff',
+                        padding: '2px',
+                        'font-size': '12px',
+                        'font-family': 'Lato'
+                    }
+                })
+            ]
+            
         });
     
         wavesurfer.load(offender);
@@ -31,26 +53,55 @@ class WaveformPlayerV2 extends React.Component {
     }
 
     playSong = () => {
-        const { wavesurfer } = this.state;
+        const { wavesurfer, isPlaying } = this.state;
         wavesurfer.play()
+        this.setState({ isPlaying: !isPlaying });
     }
 
     pauseSong = () => {
-        const { wavesurfer } = this.state;
+        const { wavesurfer, isPlaying } = this.state;
         wavesurfer.pause()
+        this.setState({ isPlaying: !isPlaying });
     }
 
     render() {
+        const { isPlaying } = this.state;
         return (
             <>
-                <div id='waveform'>
-                </div>
-                <IconButton variant="outlined" component="span" onClick={this.playSong}>
-                    <PlayCircleOutlineIcon />
-                </IconButton>
-                <IconButton variant="outlined" component="span" onClick={this.pauseSong}>
-                    <PauseCircleOutlineIcon />
-                </IconButton>
+                <Paper>
+                    <Grid container>
+                        <Grid item xs={1}>
+                            {
+                                isPlaying ? 
+                                    <IconButton size="large" component="span" onClick={this.pauseSong}>
+                                        <PauseCircleIcon style={{ fontSize: 50 }}/>
+                                    </IconButton>
+                                :
+                                    <IconButton size="large" component="span" onClick={this.playSong}>
+                                        <PlayCircleIcon style={{ fontSize: 50 }}/>
+                                    </IconButton>
+                            }
+                        </Grid>
+                        <Grid item xs={11}>
+                            <Grid item>
+                                <Typography variant="h6" gutterBottom>
+                                    Offender
+                                </Typography>
+                            </Grid>
+                            <Divider/>
+                            <Grid item>
+                                <Typography variant="h6" gutterBottom>
+                                    Dimension
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <div id='waveform'>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </Paper>
+
                 {this.state.wavesurfer ? null: <button onClick={this.createWaveform}>Display Waveform</button>}
                 
             </>

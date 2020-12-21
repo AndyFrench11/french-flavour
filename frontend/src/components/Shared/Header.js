@@ -7,6 +7,25 @@ import {
     Divider
 } from '@material-ui/core';
 
+const calculateHrMarginLeft = () => {
+    let url = window.location.href
+    var n = url.lastIndexOf("/");
+    let page = url.substring(n+1);
+
+    switch(page) {
+        case 'mixes':
+            return '0%'
+        case 'stories':
+            return '20%'
+        case '':
+            return '40%'
+        case 'photography':
+            return '60%'
+        case 'music':
+            return '80%'       
+    }
+}
+
 const useStyles = makeStyles((theme) => ({
     toolbar: {
         borderBottom: `1px solid ${theme.palette.divider}`,
@@ -68,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
     },
     hrComponent: {
         height: '.1rem',
-        marginLeft: '40%',
+        marginLeft: calculateHrMarginLeft(),
         width: '20%',
         margin: '0',
         background: 'white',
@@ -82,7 +101,6 @@ function Header(props) {
 
     const classes = useStyles()
     const { title } = props;
-    // const { title, sections } = props;
 
     return (
         <React.Fragment >

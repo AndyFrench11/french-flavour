@@ -37,6 +37,10 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 0,
     },
   },
+  logo: {
+    marginLeft: '100px',
+    marginTop: '100px'
+  }
 }));
 
 function Home() {
@@ -51,7 +55,7 @@ function Home() {
         className={classes.mainBackgroundPhoto}
       >
         <Container maxWidth="fixed" className={classes.imageContainer}>
-            <Header title="french flavour." />
+          <Header title="french flavour." />
         </Container>
 
         <Container maxWidth="lg">
@@ -68,7 +72,7 @@ function Home() {
                   An intersection of music production, mixing, photography and storytelling.
                 </Typography>
                 <Divider />
-                <br/>
+                <br />
                 <Typography variant="h5" color="inherit" paragraph>
                   Here to vibe. All the time!
                 </Typography>
@@ -80,20 +84,43 @@ function Home() {
       <Container maxWidth="lg">
         <Grid container>
           <Grid item md={6}>
-            <img src={FrenchFlavourLogo}/>
+            <div className={classes.mainFeaturedPostContent}>
+              <Typography
+                component="h1"
+                variant="h4"
+                color="inherit"
+                gutterBottom
+              >
+                Welcome!
+                </Typography>
+              <Divider />
+              <br />
+              <Typography variant="h6" color="inherit" paragraph>
+                  Welcome to french flavour.
+              </Typography>
+              <Typography variant="h6" color="inherit" paragraph>
+                  My name is Andy and this place is a home to bring together the passions of my life in a hope bring people closer together.
+              </Typography>
+              <Typography variant="h6" color="inherit" paragraph>
+                  This website is a home for music, photography and ultimately, storytelling, in an attempt to share the tales of some fantastic human beings. 
+              </Typography>
+              <Typography variant="h6" color="inherit" paragraph>
+                  I hope you enjoy!
+              </Typography>
+            </div>
           </Grid>
           <Grid item md={6}>
-            <img src={FrenchFlavourLogo}/>
+            <img className={classes.logo} src={FrenchFlavourLogo} />
           </Grid>
         </Grid>
 
-      {
-      /* 
-        Chuck in something like - Hey I'm Andy, and welcome to French Flavour!
-        CHuck in a photo of me as well
-        Talk about interests and inspiration to make this 
-      */
-      }
+        {
+          /* 
+            Chuck in something like - Hey I'm Andy, and welcome to French Flavour!
+            CHuck in a photo of me as well
+            Talk about interests and inspiration to make this 
+          */
+        }
 
         {/* INSERT A GRID LIST OF IMAGES */}
 
