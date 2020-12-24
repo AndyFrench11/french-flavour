@@ -1,15 +1,23 @@
 import * as React from 'react';
-import { Container, Paper, Grid, Typography, Divider } from '@material-ui/core';
+import { Paper, Grid, Typography, Divider } from '@material-ui/core';
 import offender from '../../audio/Offender.mp3';
 import WaveSurfer from 'wavesurfer.js';
 import CursorPlugin from "wavesurfer.js/dist/plugin/wavesurfer.cursor.min";
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import PlayCircleIcon from '@material-ui/icons/PlayCircleFilled';
 import PauseCircleIcon from '@material-ui/icons/PauseCircleFilled';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
+const styles = theme => ({
+    mainContainer: {
+        position: 'relative',
+        padding: theme.spacing(3),
+        paddingTop: theme.spacing(6)
+    },
+})
 
-class WaveformPlayerV2 extends React.Component {
+class WaveformPlayer extends React.Component {
     
     constructor(props) {
         super(props)
@@ -66,6 +74,7 @@ class WaveformPlayerV2 extends React.Component {
 
     render() {
         const { isPlaying } = this.state;
+        // const { classes } = this.props;
         return (
             <>
                 <Paper>
@@ -111,4 +120,8 @@ class WaveformPlayerV2 extends React.Component {
 
 }
 
-export default WaveformPlayerV2;
+WaveformPlayer.propTypes = {
+    classes: PropTypes.object.isRequired
+}
+
+export default withStyles(styles)(WaveformPlayer);

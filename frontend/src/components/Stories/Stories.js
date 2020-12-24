@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import { Container, Grid } from '@material-ui/core';
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer';
@@ -11,37 +11,45 @@ import post5 from '../../posts/NovemberPost5';
 import post6 from '../../posts/NovemberPost6';
 import post7 from '../../posts/NovemberPost7';
 import MainPosts from '../Home/MainPosts';
+import PropTypes from 'prop-types';
 
-const useStyles = makeStyles((theme) => ({
+const styles = theme => ({
     mainGrid: {
-      marginTop: theme.spacing(3),
+        marginTop: theme.spacing(3),
     },
-  }));
+});
 
-function Stories() {
+class Stories extends React.Component {
 
-    const classes = useStyles();
-    const posts = [post1, post2, post3, post4, post5, post6, post7];
-    posts.reverse()
+    render() {
 
-    return (
-        <>
-            <Container maxWidth="fixed">
-                <Header title="french flavour." />
-            </Container>
-            <Container maxWidth="lg">
-                <Grid container spacing={5} className={classes.mainGrid}>
-                    <MainPosts title="Recent Updates" posts={posts} />
-                </Grid>
-            </Container>
-            <Footer
-                title="Thanks for coming!"
-                description="Hope you enjoyed it!"
-                isSticky={false}
-            />
-        </>
-    )
+        const { classes } = this.props;
+        const posts = [post1, post2, post3, post4, post5, post6, post7];
+        posts.reverse()
 
+        return (
+            <>
+                <Container maxWidth="fixed">
+                    <Header title="french flavour." />
+                </Container>
+                <Container maxWidth="lg">
+                    <Grid container spacing={5} className={classes.mainGrid}>
+                        <MainPosts title="Recent Updates" posts={posts} />
+                    </Grid>
+                </Container>
+                <Footer
+                    title="Thanks for coming!"
+                    description="Hope you enjoyed it!"
+                    isSticky={false}
+                />
+            </>
+        )
+
+    }
 }
 
-export default Stories;
+Stories.propTypes = {
+    classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(Stories);

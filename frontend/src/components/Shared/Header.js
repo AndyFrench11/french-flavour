@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import {
     Toolbar,
@@ -10,9 +10,9 @@ import {
 const calculateHrMarginLeft = () => {
     let url = window.location.href
     var n = url.lastIndexOf("/");
-    let page = url.substring(n+1);
+    let page = url.substring(n + 1);
 
-    switch(page) {
+    switch (page) {
         case 'mixes':
             return '0%'
         case 'stories':
@@ -22,11 +22,13 @@ const calculateHrMarginLeft = () => {
         case 'photography':
             return '60%'
         case 'music':
-            return '80%'       
+            return '80%'
+        default:
+            return '40%'
     }
 }
 
-const useStyles = makeStyles((theme) => ({
+const styles = theme => ({
     toolbar: {
         borderBottom: `1px solid ${theme.palette.divider}`,
     },
@@ -95,39 +97,40 @@ const useStyles = makeStyles((theme) => ({
         transition: '.3s ease-in-out'
     }
 
-}));
+});
 
-function Header(props) {
+class Header extends React.Component {
 
-    const classes = useStyles()
-    const { title } = props;
+    render() {
 
-    return (
-        <React.Fragment >
-            <Toolbar className={classes.toolbar} >
-                <Typography 
-                    component="h2"
-                    variant="h4"
-                    color="inherit"
-                    align="center"
-                    noWrap
-                    className={classes.toolbarTitle}
+        const { classes, title } = this.props;
+
+        return (
+            <React.Fragment >
+                <Toolbar className={classes.toolbar} >
+                    <Typography
+                        component="h2"
+                        variant="h4"
+                        color="inherit"
+                        align="center"
+                        noWrap
+                        className={classes.toolbarTitle}
                     >
-                    {title}
-                </Typography>
-            </Toolbar >
-            <Divider />
-            {/* TODO Make use of the sections properly. */}
-            <div className={classes.toolbarSecondary} >
-                <ul className={classes.unorderedList}>
-                    <li className={classes.unorderedList}><a className={classes.aComponent} href="mixes">Mixes</a></li>
-                    <li className={classes.twoComponent}><a className={classes.aComponent} href="stories">Stories</a></li>
-                    <li className={classes.threeComponent}><a className={classes.aComponent} href="/">Home</a></li>
-                    <li className={classes.fourComponent}><a className={classes.aComponent} href="photography">Photography</a></li>
-                    <li className={classes.fiveComponent}><a className={classes.aComponent} href="music">Music</a></li>
-                    <hr className={classes.hrComponent} />
-                </ul>
-                {/* {sections.map((section) => (
+                        {title}
+                    </Typography>
+                </Toolbar >
+                <Divider />
+                {/* TODO Make use of the sections properly. */}
+                <div className={classes.toolbarSecondary} >
+                    <ul className={classes.unorderedList}>
+                        <li className={classes.unorderedList}><a className={classes.aComponent} href="mixes">Mixes</a></li>
+                        <li className={classes.twoComponent}><a className={classes.aComponent} href="stories">Stories</a></li>
+                        <li className={classes.threeComponent}><a className={classes.aComponent} href="/">Home</a></li>
+                        <li className={classes.fourComponent}><a className={classes.aComponent} href="photography">Photography</a></li>
+                        <li className={classes.fiveComponent}><a className={classes.aComponent} href="music">Music</a></li>
+                        <hr className={classes.hrComponent} />
+                    </ul>
+                    {/* {sections.map((section) => (
                     <Link color="inherit"
                         noWrap key={section.title}
                         variant="h6"
@@ -138,10 +141,11 @@ function Header(props) {
                     </Link>
                 ))
                 } */}
-            </div>
-        </React.Fragment >
-    )
-};
+                </div>
+            </React.Fragment >
+        )
+    }
+}
 
 // Determine the property types
 Header.propTypes = {
@@ -152,6 +156,7 @@ Header.propTypes = {
         }),
     ).isRequired,
     title: PropTypes.string.isRequired,
+    classes: PropTypes.object.isRequired
 };
 
-export default Header;
+export default withStyles(styles)(Header);

@@ -1,14 +1,13 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import { Container, Grid, Paper, Typography, Divider } from '@material-ui/core';
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer';
-import MainPosts from './MainPosts';
-import post1 from '../../posts/NovemberPost1';
 import MainPhotoUntagged from '../../images/MainPhotoUntagged.jpeg';
 import FrenchFlavourLogo from '../../images/frenchFlavourLogoCropped.png';
+import PropTypes from 'prop-types';
 
-const useStyles = makeStyles((theme) => ({
+const styles = theme => ({
   mainGrid: {
     marginTop: theme.spacing(3),
   },
@@ -41,97 +40,93 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '100px',
     marginTop: '100px'
   }
-}));
+});
 
-function Home() {
+class Home extends React.Component {
 
-  const classes = useStyles();
-  const posts = [post1];
+  render() {
 
-  return (
-    <>
-      <Paper
-        style={{ backgroundImage: `url(${MainPhotoUntagged}` }}
-        className={classes.mainBackgroundPhoto}
-      >
-        <Container maxWidth="fixed" className={classes.imageContainer}>
-          <Header title="french flavour." />
-        </Container>
+    const { classes } = this.props;
 
+    return (
+      <>
+        <Paper
+          style={{ backgroundImage: `url(${MainPhotoUntagged}` }}
+          className={classes.mainBackgroundPhoto}
+        >
+          <Container maxWidth="fixed" className={classes.imageContainer}>
+            <Header title="french flavour." />
+          </Container>
+
+          <Container maxWidth="lg">
+            <div className={classes.overlay} />
+            <Grid container>
+              <Grid item md={6}>
+                <div className={classes.mainFeaturedPostContent}>
+                  <Typography
+                    component="h1"
+                    variant="h3"
+                    color="inherit"
+                    gutterBottom
+                  >
+                    An intersection of music production, mixing, photography and storytelling.
+                </Typography>
+                  <Divider />
+                  <br />
+                  <Typography variant="h5" color="inherit" paragraph>
+                    Here to vibe. All the time!
+                </Typography>
+                </div>
+              </Grid>
+            </Grid>
+          </Container>
+        </Paper>
         <Container maxWidth="lg">
-          <div className={classes.overlay} />
           <Grid container>
             <Grid item md={6}>
               <div className={classes.mainFeaturedPostContent}>
                 <Typography
                   component="h1"
-                  variant="h3"
+                  variant="h4"
                   color="inherit"
                   gutterBottom
                 >
-                  An intersection of music production, mixing, photography and storytelling.
+                  Welcome!
                 </Typography>
                 <Divider />
                 <br />
-                <Typography variant="h5" color="inherit" paragraph>
-                  Here to vibe. All the time!
-                </Typography>
-              </div>
-            </Grid>
-          </Grid>
-        </Container>
-      </Paper>
-      <Container maxWidth="lg">
-        <Grid container>
-          <Grid item md={6}>
-            <div className={classes.mainFeaturedPostContent}>
-              <Typography
-                component="h1"
-                variant="h4"
-                color="inherit"
-                gutterBottom
-              >
-                Welcome!
-                </Typography>
-              <Divider />
-              <br />
-              <Typography variant="h6" color="inherit" paragraph>
+                <Typography variant="h6" color="inherit" paragraph>
                   Welcome to french flavour.
               </Typography>
-              <Typography variant="h6" color="inherit" paragraph>
+                <Typography variant="h6" color="inherit" paragraph>
                   My name is Andy and this place is a home to bring together the passions of my life in a hope bring people closer together.
               </Typography>
-              <Typography variant="h6" color="inherit" paragraph>
-                  This website is a home for music, photography and ultimately, storytelling, in an attempt to share the tales of some fantastic human beings. 
+                <Typography variant="h6" color="inherit" paragraph>
+                  This website is a home for music, photography and ultimately, storytelling, in an attempt to share the tales of some fantastic human beings.
               </Typography>
-              <Typography variant="h6" color="inherit" paragraph>
+                <Typography variant="h6" color="inherit" paragraph>
                   I hope you enjoy!
               </Typography>
-            </div>
+              </div>
+            </Grid>
+            <Grid item md={6}>
+              <img alt="" className={classes.logo} src={FrenchFlavourLogo} />
+            </Grid>
           </Grid>
-          <Grid item md={6}>
-            <img className={classes.logo} src={FrenchFlavourLogo} />
-          </Grid>
-        </Grid>
 
-        {
-          /* 
-            Chuck in something like - Hey I'm Andy, and welcome to French Flavour!
-            CHuck in a photo of me as well
-            Talk about interests and inspiration to make this 
-          */
-        }
-
-        {/* INSERT A GRID LIST OF IMAGES */}
-
-      </Container>
-      <Footer
-        title="Thanks for coming!"
-        description="Hope you enjoyed it!"
-        isSticky={false}
-      />
-    </>
-  )
+        </Container>
+        <Footer
+          title="Thanks for coming!"
+          description="Hope you enjoyed it!"
+          isSticky={false}
+        />
+      </>
+    )
+  }
 }
 
-export default Home;
+Home.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Home);

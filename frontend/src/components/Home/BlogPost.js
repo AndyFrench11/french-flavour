@@ -10,6 +10,9 @@ const styles = (theme) => ({
     },
     headerFont: {
         fontFamily: 'Libre Baskerville'
+    },
+    paragraphFont: {
+        fontFamily: 'Lato',
     }
 });
 
@@ -47,9 +50,14 @@ const options = {
                 );
             }),
         },
-        p: {
-            component: Typography,
-            props: { paragraph: true },
+        p: 
+        {
+            component: withStyles(styles)((props) => {
+                const { classes, children } = props;
+                return (
+                    <Typography variant='body2' paragraph={true} className={classes.paragraphFont}> {children} </Typography>
+                );
+            }),
         },
         a: { component: Link },
         li: {
