@@ -33,12 +33,12 @@ class Photography extends React.Component {
                         gutterBottom
                         align="center"
                     >
-                        This page is still underway.
+                        This page is coming soon!
                 </Typography>
                     <Divider />
                     <br />
                     <Typography variant="h5" color="inherit" paragraph align="center">
-                        But don't stray away! Exciting things are on the horizon!
+                        But don't stray away! There's still LOTS of fun to be had here.
                 </Typography>
                 </Container>
                 <Footer

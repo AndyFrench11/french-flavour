@@ -4,7 +4,6 @@ export default `
 #### November 23rd, 2020 by Andy French
 
 And just like that - it’s volume 3!!! 😯
-
 It’s crazy to look back on this year and see that even amidst a pandemic, there have been many awesome memories made. 
 For sure, there have been some lows, and some solid time spent just trying to figure out how to re-adjust to a world outside of lockdown. But in the end, that time spent has been so crucial in finding my place within the craziness! 
 

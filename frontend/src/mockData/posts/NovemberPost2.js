@@ -5,7 +5,6 @@ export default `
 
 And we’re back again!!! We continue the trip down memory lane of this wild and peculiar year. 
 So strap in for the next segment of these Andy updates!
-
 I’ll call this Volume 2 - June 2020 🤨
 
 Setting the scene: 
