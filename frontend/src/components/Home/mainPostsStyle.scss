@@ -1,0 +1,21 @@
+.Banner
+{
+    height: 400px;
+    position: relative;
+
+    .Media
+    {
+        height: 100%;
+        overflow: hidden;
+
+        position: relative;
+
+        transition: 50ms;
+        cursor: pointer;
+        &:hover
+        {
+            filter: brightness(115%);
+        }
+    }
+
+}

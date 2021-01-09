@@ -3,8 +3,8 @@ import { withStyles } from '@material-ui/core/styles';
 import { Container, Grid, Paper, Typography, Divider } from '@material-ui/core';
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer';
-import MainPhotoUntagged from '../../images/MainPhotoUntagged.jpeg';
-import FrenchFlavourLogo from '../../images/frenchFlavourLogoCropped.png';
+import MainPhotoUntagged from '../../mockData/images/MainPhotoUntagged.jpeg';
+import FrenchFlavourLogo from '../../mockData/images/frenchFlavourLogoCropped.png';
 import PropTypes from 'prop-types';
 
 const styles = theme => ({

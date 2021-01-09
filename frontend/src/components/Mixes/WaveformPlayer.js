@@ -41,6 +41,7 @@ class WaveformPlayer extends React.Component {
             barRadius: 3,
             height: 200,
             barGap: 3,
+            cursorColor: '#38b6ff',
             plugins: [
                 CursorPlugin.create({
                     showTime: true,
@@ -57,11 +58,22 @@ class WaveformPlayer extends React.Component {
             ]
             
         });
+
+        wavesurfer.on('seek', () => {
+            this.resumeSongOnSeek()
+        })
     
         wavesurfer.load(offender);
 
         this.setState({ wavesurfer: wavesurfer, isLoading: false })
     
+    }
+
+    resumeSongOnSeek = () => {
+        const { wavesurfer, isPlaying } = this.state;
+        if(isPlaying) {
+            wavesurfer.play()
+        }
     }
 
     playSong = () => {
@@ -108,11 +120,13 @@ class WaveformPlayer extends React.Component {
                                 </Typography>
                             </Grid>
                         </Grid>
+                    </Grid>
+                    <Grid container className={classes.mainContainer}>
                         <Grid item xs={12}>
                             <div id='waveform'>
                                 {
                                     isLoading ? 
-                                        <CircularProgress color="secondary"></CircularProgress>
+                                        <CircularProgress color="#38b6ff"></CircularProgress>
                                     :
                                         null
                                 }

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react'; 
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer';
 import WaveformPlayer from './WaveformPlayer';
@@ -19,7 +19,7 @@ class Mixes extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            stillUnderwork: true
+            stillUnderwork: false
         }
     }
 
