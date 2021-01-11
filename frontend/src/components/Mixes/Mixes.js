@@ -20,7 +20,7 @@ class Mixes extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            stillUnderwork: true
+            stillUnderwork: false
         }
     }
 
