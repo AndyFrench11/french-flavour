@@ -100,7 +100,7 @@ class Home extends React.Component {
                   Welcome to french flavour.
               </Typography>
                 <Typography variant="h6" color="inherit" paragraph>
-                  My name is Andy and this place is a home to bring together the passions of my life in a hope bring people closer together.
+                  My name is Andy and this place is a home to bring together the passions of my life in a hope to bring people closer together.
               </Typography>
                 <Typography variant="h6" color="inherit" paragraph>
                   This website is a home for music, photography and ultimately, storytelling, in an attempt to share the tales of some fantastic human beings.

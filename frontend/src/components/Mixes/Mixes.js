@@ -20,7 +20,7 @@ class Mixes extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            stillUnderwork: false
+            stillUnderwork: true
         }
     }
 
@@ -57,12 +57,17 @@ class Mixes extends React.Component {
                             <WaveformPlayer />
                     }
                 </Container>
-                {/* <Footer
-                    title="Thanks for coming!"
-                    description="Hope you enjoyed it!"
-                    isSticky={true}
-                /> */}
-                <FooterMediaPlayer/>
+                
+                { stillUnderwork ? 
+                    <Footer
+                        title="Thanks for coming!"
+                        description="Hope you enjoyed it!"
+                        isSticky={true}
+                    /> 
+                : 
+                    <FooterMediaPlayer/>
+                }
+                
             </>
         )
 
