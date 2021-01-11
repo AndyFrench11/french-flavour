@@ -1,11 +1,12 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Container, Grid, Paper, Typography, Divider } from '@material-ui/core';
+import { Container, Grid, Paper, Typography, Divider, Card, CardMedia } from '@material-ui/core';
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer';
 import MainPhotoUntagged from '../../mockData/images/MainPhotoUntagged.jpeg';
-import FrenchFlavourLogo from '../../mockData/images/frenchFlavourLogoCropped.png';
+import frenchFlavourLogoResized from '../../mockData/images/frenchflavourlogo.png';
 import PropTypes from 'prop-types';
+import './mainPostsStyle.scss';
 
 const styles = theme => ({
   mainGrid: {
@@ -82,7 +83,7 @@ class Home extends React.Component {
           </Container>
         </Paper>
         <Container maxWidth="lg">
-          <Grid container>
+          <Grid container alignItems="center" spacing={5}>
             <Grid item md={6}>
               <div className={classes.mainFeaturedPostContent}>
                 <Typography
@@ -110,7 +111,13 @@ class Home extends React.Component {
               </div>
             </Grid>
             <Grid item md={6}>
-              <img alt="" className={classes.logo} src={FrenchFlavourLogo} />
+              <Card raised className="Banner">
+                <CardMedia
+                  className="Media"
+                  image={frenchFlavourLogoResized}
+                >
+                </CardMedia>
+              </Card>
             </Grid>
           </Grid>
 
