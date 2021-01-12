@@ -27,7 +27,7 @@ function App() {
     });
 
   return (
-    <Router basename="/React">
+    <Router>
       <ThemeProvider theme={theme}>
         <CssBaseline/>
         <Switch>

@@ -98,11 +98,11 @@ class WaveformPlayer extends React.Component {
                         <Grid item xs={1}>
                             {
                                 isPlaying ? 
-                                    <IconButton size="large" component="span" onClick={this.pauseSong}>
+                                    <IconButton size="medium" component="span" onClick={this.pauseSong}>
                                         <PauseCircleIcon style={{ fontSize: 50 }}/>
                                     </IconButton>
                                 :
-                                    <IconButton size="large" component="span" onClick={this.playSong}>
+                                    <IconButton size="medium" component="span" onClick={this.playSong}>
                                         <PlayCircleIcon style={{ fontSize: 50 }}/>
                                     </IconButton>
                             }
@@ -126,7 +126,7 @@ class WaveformPlayer extends React.Component {
                             <div id='waveform'>
                                 {
                                     isLoading ? 
-                                        <CircularProgress color="#38b6ff"></CircularProgress>
+                                        <CircularProgress color="inherit"></CircularProgress>
                                     :
                                         null
                                 }

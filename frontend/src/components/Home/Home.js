@@ -7,6 +7,10 @@ import MainPhotoUntagged from '../../mockData/images/MainPhotoUntagged.jpeg';
 import frenchFlavourLogoResized from '../../mockData/images/frenchflavourlogo.png';
 import PropTypes from 'prop-types';
 import './mainPostsStyle.scss';
+import { connect } from 'react-redux';
+import {
+  loadData,
+} from '../../api/example';
 
 const styles = theme => ({
   mainGrid: {
@@ -55,7 +59,7 @@ class Home extends React.Component {
           style={{ backgroundImage: `url(${MainPhotoUntagged}` }}
           className={classes.mainBackgroundPhoto}
         >
-          <Container maxWidth="fixed" className={classes.imageContainer}>
+          <Container className={classes.imageContainer}>
             <Header title="french flavour." />
           </Container>
 
@@ -136,4 +140,7 @@ Home.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Home);
+export default withStyles(styles)(connect(state => ({
+  posts: state.posts,
+  isFetching: state.isFetching
+}))(Home));

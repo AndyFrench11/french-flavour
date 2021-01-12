@@ -1,7 +1,6 @@
 import * as React from 'react'; 
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer';
-import FooterMediaPlayer from '../Shared/FooterMediaPlayer';
 import WaveformPlayer from './WaveformPlayer';
 import { Container, Typography, Divider } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';

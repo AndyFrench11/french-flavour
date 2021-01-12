@@ -2,18 +2,17 @@ import React from 'react';
 import { render } from 'react-dom';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-// import rootReducer from './reducers'
+import { Provider } from 'react-redux';
+import configureAppStore from './configureAppStore';
 
-// const store = createStore(rootReducer)
+const store = configureAppStore()
 
 render(
-  // <Provider store={store}>
+  <Provider store={store}>
     <React.StrictMode>
       <App />
     </React.StrictMode>,
-  // </Provider>, 
+  </Provider>, 
   document.getElementById('root')
 );
 

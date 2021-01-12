@@ -149,12 +149,12 @@ class Header extends React.Component {
 
 // Determine the property types
 Header.propTypes = {
-    sections: PropTypes.arrayOf(
-        PropTypes.shape({
-            title: PropTypes.string.isRequired,
-            url: PropTypes.string.isRequired,
-        }),
-    ).isRequired,
+    // sections: PropTypes.arrayOf(
+    //     PropTypes.shape({
+    //         title: PropTypes.string.isRequired,
+    //         url: PropTypes.string.isRequired,
+    //     }),
+    // ).isRequired,
     title: PropTypes.string.isRequired,
     classes: PropTypes.object.isRequired
 };
