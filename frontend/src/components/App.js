@@ -12,6 +12,7 @@ import Stories from './Stories/Stories';
 import Music from './Music/Music';
 import ErrorPage from './ErrorPage/ErrorPage';
 import Photography from './Photography/Photography';
+import FooterMediaPlayer from './Shared/FooterMediaPlayer';
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
             <ErrorPage />
           </Route>
         </Switch>
+        <FooterMediaPlayer/>
       </ThemeProvider>
     </Router>
   );

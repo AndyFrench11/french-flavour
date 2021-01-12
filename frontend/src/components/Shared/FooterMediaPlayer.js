@@ -17,17 +17,11 @@ import CursorPlugin from "wavesurfer.js/dist/plugin/wavesurfer.cursor.min";
 const styles = theme => ({
   stickyFooter: {
     backgroundColor: theme.palette.background.paper,
-    marginTop: theme.spacing(4),
-    padding: theme.spacing(6, 0),
+    padding: theme.spacing(4, 0),
     position: 'fixed',
     bottom: '0',
     left: '0',
     width: '100%',
-  },
-  nonStickyFooter: {
-    backgroundColor: theme.palette.background.paper,
-    marginTop: theme.spacing(4),
-    padding: theme.spacing(6, 0),
   },
   latoFont: {
     fontFamily: 'Lato'
@@ -136,9 +130,9 @@ class FooterMediaPlayer extends React.Component {
 
           <Grid container alignItems="center">
             <Grid item xs={12}>
-              <Typography variant="h6" align="center">
+              <Typography variant="h6" align="center" gutterBottom>
                 Dimension - Offender
-                    </Typography>
+              </Typography>
             </Grid>
           </Grid>
           <Grid container alignItems="center">

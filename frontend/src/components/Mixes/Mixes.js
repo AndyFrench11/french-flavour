@@ -57,16 +57,12 @@ class Mixes extends React.Component {
                             <WaveformPlayer />
                     }
                 </Container>
-                
-                { stillUnderwork ? 
-                    <Footer
-                        title="Thanks for coming!"
-                        description="Hope you enjoyed it!"
-                        isSticky={true}
-                    /> 
-                : 
-                    <FooterMediaPlayer/>
-                }
+            
+                <Footer
+                    title="Thanks for coming!"
+                    description="Hope you enjoyed it!"
+                    isSticky={true}
+                /> 
                 
             </>
         )
