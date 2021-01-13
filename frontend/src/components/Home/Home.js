@@ -145,7 +145,7 @@ class Home extends React.Component {
 }
 
 Home.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(connect(state => ({
