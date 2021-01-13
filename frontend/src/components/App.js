@@ -13,10 +13,13 @@ import Music from './Music/Music';
 import ErrorPage from './ErrorPage/ErrorPage';
 import Photography from './Photography/Photography';
 import FooterMediaPlayer from './Shared/FooterMediaPlayer';
+import { connect } from 'react-redux';
 
-function App() {
+class App extends React.Component {
 
-  const theme = createMuiTheme({
+  render() {
+
+    const theme = createMuiTheme({
       palette: {
         type: 'dark',
       },
@@ -26,35 +29,40 @@ function App() {
       },
     });
 
-  return (
-    <Router>
-      <ThemeProvider theme={theme}>
-        <CssBaseline/>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/mixes">
-            <Mixes />
-          </Route>
-          <Route path="/music">
-            <Music />
-          </Route>
-          <Route path="/stories">
-            <Stories />
-          </Route>
-          <Route path="/photography">
-            <Photography />
-          </Route>
-          <Route path="/error">
-            <ErrorPage />
-          </Route>
-        </Switch>
-        <FooterMediaPlayer/>
-      </ThemeProvider>
-    </Router>
-  );
+    const { footerMediaPlayerVisible } = this.props;
+
+    return (
+      <Router>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/mixes">
+              <Mixes />
+            </Route>
+            <Route path="/music">
+              <Music />
+            </Route>
+            <Route path="/stories">
+              <Stories />
+            </Route>
+            <Route path="/photography">
+              <Photography />
+            </Route>
+            <Route path="/error">
+              <ErrorPage />
+            </Route>
+          </Switch>
+          { footerMediaPlayerVisible ? <FooterMediaPlayer /> : null }
+        </ThemeProvider>
+      </Router>
+    );
+  }
 }
 
-export default App;
+export default connect(state => ({
+  footerMediaPlayerVisible: state.footerMediaPlayer.footerMediaPlayerVisible
+}))(App);
 
