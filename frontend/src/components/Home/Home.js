@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Container, Grid, Paper, Typography, Divider, Card, CardMedia, Button } from '@material-ui/core';
+import { Container, Grid, Paper, Typography, Divider, Card, CardMedia } from '@material-ui/core';
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer';
 import MainPhotoUntagged from '../../mockData/images/MainPhotoUntagged.jpeg';

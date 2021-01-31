@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import { Grid, Tooltip } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import PlayCircleIcon from '@material-ui/icons/PlayCircleFilled';
 import PauseCircleIcon from '@material-ui/icons/PauseCircleFilled';
@@ -83,7 +83,7 @@ class FooterMediaPlayer extends React.Component {
           <Grid container alignItems="center">
             <Grid item xs={12}>
               <Typography variant="h6" align="center" gutterBottom>
-                Dimension - Offender
+                  Dark and Smooth Drum & Bass · ActiveFM 88.6 - Midnight Marauders Show
               </Typography>
             </Grid>
           </Grid>

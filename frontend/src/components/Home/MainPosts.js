@@ -44,7 +44,7 @@ class MainPosts extends React.Component {
           <>
             <Divider />
             <Grid container alignItems="center" spacing={5}>
-              {index % 2 == 0 ?
+              {index % 2 === 0 ?
                 <>
                   <Grid item xs={7}>
                     <BlogPost className={classes.markdown} key={post.substring(0, 40)}>
