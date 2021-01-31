@@ -8,7 +8,6 @@ import frenchFlavourLogoResized from '../../mockData/images/frenchflavourlogo.pn
 import PropTypes from 'prop-types';
 import './mainPostsStyle.scss';
 import { connect } from 'react-redux';
-import { showFooterMediaPlayer, hideFooterMediaPlayer } from '../../actions/footerMediaPlayer';
 
 const styles = theme => ({
   mainGrid: {
@@ -22,7 +21,7 @@ const styles = theme => ({
     backgroundPosition: 'center',
   },
   imageContainer: {
-    height: '450px'
+    height: '400px'
   },
   overlay: {
     top: 0,
@@ -47,14 +46,6 @@ const styles = theme => ({
 
 class Home extends React.Component {
 
-  showMediaFooterPlayer = () => {
-    this.props.dispatch(showFooterMediaPlayer())
-  }
-
-  hideMediaFooterPlayer = () => {
-    this.props.dispatch(hideFooterMediaPlayer())
-  }
-
   render() {
 
     const { classes } = this.props;
@@ -65,7 +56,7 @@ class Home extends React.Component {
           style={{ backgroundImage: `url(${MainPhotoUntagged}` }}
           className={classes.mainBackgroundPhoto}
         >
-          <Container className={classes.imageContainer}>
+          <Container maxWidth="fixed" className={classes.imageContainer}>
             <Header title="french flavour." />
           </Container>
 
@@ -84,10 +75,8 @@ class Home extends React.Component {
                 </Typography>
                   <Divider />
                   <br />
-                  <Button onClick={this.hideMediaFooterPlayer}>HIDE</Button>
-                  <Button onClick={this.showMediaFooterPlayer}>SHOW</Button>
                   <Typography variant="h5" color="inherit" paragraph>
-                    Here to vibe. All the time!
+                    Come, stay a while!
                 </Typography>
                 </div>
               </Grid>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Paper, Grid, Typography, Divider, CircularProgress } from '@material-ui/core';
-import offender from '../../mockData/audio/Offender.mp3';
+import ActiveFMSet from '../../mockData/audio/ActiveFMSet.mp3';
 import WaveSurfer from 'wavesurfer.js';
 import CursorPlugin from "wavesurfer.js/dist/plugin/wavesurfer.cursor.min";
 import IconButton from '@material-ui/core/IconButton';
@@ -8,12 +8,17 @@ import PlayCircleIcon from '@material-ui/icons/PlayCircleFilled';
 import PauseCircleIcon from '@material-ui/icons/PauseCircleFilled';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import { updateCurrentFooterMedia, showFooterMediaPlayer, togglePlaying, generateWaveformHelperFunctions } from '../../actions/footerMediaPlayer';
+import { connect } from 'react-redux';
 
 const styles = theme => ({
     mainContainer: {
         position: 'relative',
         padding: theme.spacing(1),
     },
+    showName: {
+        marginTop: '5px'
+    }
 })
 
 class WaveformPlayer extends React.Component {
@@ -22,7 +27,6 @@ class WaveformPlayer extends React.Component {
         super(props)
         this.state = {
             wavesurfer: null,
-            isPlaying: false,
             isLoading: true
         }
     }
@@ -62,35 +66,76 @@ class WaveformPlayer extends React.Component {
         wavesurfer.on('seek', () => {
             this.resumeSongOnSeek()
         })
-    
-        wavesurfer.load(offender);
+
+        wavesurfer.on('audioprocess', () => {
+            this.props.dispatch(updateCurrentFooterMedia(wavesurfer.getCurrentTime(), wavesurfer.getDuration()))
+        })
+        
+        // Load the given mix/song from the input
+        wavesurfer.load(ActiveFMSet);
 
         this.setState({ wavesurfer: wavesurfer, isLoading: false })
+
+        // Send functions to state
+        this.props.dispatch(generateWaveformHelperFunctions(this.setVolume, this.toggleSongPlaying, this.seekThroughSong))
     
     }
 
+    seekThroughSong = (progress) => {
+        const { wavesurfer } = this.state;
+        wavesurfer.seekTo(progress);
+    }
+
+    setVolume = (value) => {
+        const { wavesurfer } = this.state;
+        wavesurfer.setVolume(value / 100);
+    }
+
     resumeSongOnSeek = () => {
-        const { wavesurfer, isPlaying } = this.state;
+        const { wavesurfer } = this.state;
+        const { isPlaying } = this.props;
+
         if(isPlaying) {
             wavesurfer.play()
         }
     }
 
+    toggleSongPlaying = () => {
+        const { wavesurfer } = this.state;
+        const { isPlaying } = this.props;
+
+        if(isPlaying) {
+            wavesurfer.pause()
+        } else {
+            wavesurfer.play()
+        }
+
+    }
+
     playSong = () => {
-        const { wavesurfer, isPlaying } = this.state;
+        const { wavesurfer } = this.state;
+        const { isPlaying } = this.props;
+
+        console.log(isPlaying)
+
         wavesurfer.play()
-        this.setState({ isPlaying: !isPlaying });
+        this.props.dispatch(updateCurrentFooterMedia(wavesurfer.getCurrentTime(), wavesurfer.getDuration()))
+        this.props.dispatch(togglePlaying(!isPlaying))
+        this.props.dispatch(showFooterMediaPlayer())
     }
 
     pauseSong = () => {
-        const { wavesurfer, isPlaying } = this.state;
+        const { wavesurfer } = this.state;
+        const { isPlaying } = this.props;
+
         wavesurfer.pause()
-        this.setState({ isPlaying: !isPlaying });
+
+        this.props.dispatch(togglePlaying(!isPlaying))
     }
 
     render() {
-        const { isPlaying, isLoading } = this.state;
-        const { classes } = this.props;
+        const { isLoading } = this.state;
+        const { classes, isPlaying } = this.props;
         return (
             <>
                 <Paper>
@@ -110,13 +155,13 @@ class WaveformPlayer extends React.Component {
                         <Grid item xs={11}>
                             <Grid item>
                                 <Typography variant="h6" gutterBottom>
-                                    Offender
+                                    Dark and Smooth Drum & Bass
                                 </Typography>
                             </Grid>
                             <Divider/>
                             <Grid item>
-                                <Typography variant="h6" gutterBottom>
-                                    Dimension
+                                <Typography variant="h6" gutterBottom className={classes.showName}>
+                                    ActiveFM 88.6 - Midnight Marauders Show
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -146,4 +191,7 @@ WaveformPlayer.propTypes = {
     classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(WaveformPlayer);
+export default withStyles(styles)(connect(state => ({
+    footerMedia: state.footerMediaPlayer.footerMedia,
+    isPlaying: state.footerMediaPlayer.isPlaying
+  }))((WaveformPlayer)));

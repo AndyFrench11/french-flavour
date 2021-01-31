@@ -22,11 +22,11 @@ const items = [
   {
     Name: "Macbook Pro",
     Image: "https://source.unsplash.com/featured/?macbook"
-},
-{
+  },
+  {
     Name: "iPhone",
     Image: "https://source.unsplash.com/featured/?iphone"
-}
+  }
 ]
 
 class MainPosts extends React.Component {
@@ -40,35 +40,68 @@ class MainPosts extends React.Component {
           {title}
         </Typography>
         <Divider />
-        {posts.map((post) => (
+        {posts.map((post, index) => (
           <>
             <Divider />
             <Grid container alignItems="center" spacing={5}>
-              <Grid item xs={7}>
-                <BlogPost className={classes.markdown} key={post.substring(0, 40)}>
-                  {post}
-                </BlogPost>
-              </Grid>
-              <Grid item xs={5}>
-                <Carousel
-                  autoPlay={false}
-                  navButtonsAlwaysVisible={true}
-                  activeIndicatorProps={{ style: { 'color': '#38b6ff' } }}
-                  className={classes.carousel}
-                >
-                  {
-                    items.map((item, i) =>
-                      <Card raised className="Banner">
-                        <CardMedia
-                          className="Media"
-                          image={item.Image}
-                        >
-                        </CardMedia>
-                      </Card>
-                    )
-                  }
-                </Carousel>
-              </Grid>
+              {index % 2 == 0 ?
+                <>
+                  <Grid item xs={7}>
+                    <BlogPost className={classes.markdown} key={post.substring(0, 40)}>
+                      {post}
+                    </BlogPost>
+                  </Grid>
+                  <Grid item xs={5}>
+                    <Carousel
+                      autoPlay={false}
+                      navButtonsAlwaysVisible={true}
+                      activeIndicatorProps={{ style: { 'color': '#38b6ff' } }}
+                      className={classes.carousel}
+                    >
+                      {
+                        items.map((item, i) =>
+                          <Card raised className="Banner">
+                            <CardMedia
+                              className="Media"
+                              image={item.Image}
+                            >
+                            </CardMedia>
+                          </Card>
+                        )
+                      }
+                    </Carousel>
+                  </Grid>
+                </>
+                :
+                <>
+                  <Grid item xs={5}>
+                    <Carousel
+                      autoPlay={false}
+                      navButtonsAlwaysVisible={true}
+                      activeIndicatorProps={{ style: { 'color': '#38b6ff' } }}
+                      className={classes.carousel}
+                    >
+                      {
+                        items.map((item, i) =>
+                          <Card raised className="Banner">
+                            <CardMedia
+                              className="Media"
+                              image={item.Image}
+                            >
+                            </CardMedia>
+                          </Card>
+                        )
+                      }
+                    </Carousel>
+                  </Grid>
+                  <Grid item xs={7}>
+                    <BlogPost className={classes.markdown} key={post.substring(0, 40)}>
+                      {post}
+                    </BlogPost>
+                  </Grid>
+
+                </>
+              }
 
             </Grid>
           </>
