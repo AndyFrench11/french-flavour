@@ -45,12 +45,12 @@ class MainPosts extends React.Component {
             <Grid container alignItems="center" spacing={5}>
               {index % 2 === 0 ?
                 <>
-                  <Grid item md={7} sm={12}>
+                  <Grid item md={7} sm={12} xs={12}>
                     <BlogPost className={classes.markdown} key={post.substring(0, 40)}>
                       {post}
                     </BlogPost>
                   </Grid>
-                  <Grid item md={5} sm={12}>
+                  <Grid item md={5} sm={12} xs={12}>
                     <Carousel
                       autoPlay={false}
                       navButtonsAlwaysVisible={true}
@@ -73,7 +73,7 @@ class MainPosts extends React.Component {
                 </>
                 :
                 <>
-                  <Grid item md={5} sm={12}>
+                  <Grid item md={5} sm={12} xs={12}>
                     <Carousel
                       autoPlay={false}
                       navButtonsAlwaysVisible={true}
@@ -93,7 +93,7 @@ class MainPosts extends React.Component {
                       }
                     </Carousel>
                   </Grid>
-                  <Grid item md={7} sm={12}>
+                  <Grid item md={7} sm={12} xs={12}>
                     <BlogPost className={classes.markdown} key={post.substring(0, 40)}>
                       {post}
                     </BlogPost>

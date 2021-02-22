@@ -97,15 +97,20 @@ class Mixes extends React.Component {
                     </Typography>
                     <Divider />
                     <br />
-                    <iframe 
-                        width="560" 
-                        height="315" 
-                        src="https://www.youtube.com/embed/xQ2iyQHtxU0" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                            
+                    <Grid container>
+                        <Grid item md={6} sm={12} xs={12}>
+                        <iframe 
+                            width="400" 
+                            height="300" 
+                            src="https://www.youtube.com/embed/xQ2iyQHtxU0" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                                
                         </iframe>
+                        </Grid>
+                    </Grid>
+
                 </Container>
 
                 <Footer

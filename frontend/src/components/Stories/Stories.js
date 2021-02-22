@@ -59,7 +59,7 @@ class Stories extends React.Component {
 
                     <Container maxWidth="lg">
                         <Grid container>
-                            <Grid item md={6} sm={12}>
+                            <Grid item md={6} sm={12} xs={12}>
                                 <div className={classes.mainFeaturedPostContent}>
                                     <Typography
                                         component="h1"

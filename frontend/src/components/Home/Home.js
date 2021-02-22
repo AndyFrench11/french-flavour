@@ -120,7 +120,7 @@ class Home extends React.Component {
               </Typography>
               </div>
             </Grid>
-            <Grid item sm={12} lg={6}>
+            <Grid item sm={12} lg={6} xs={12}>
                 <Card raised className="Banner">
                   <CardMedia
                     className="Media"
