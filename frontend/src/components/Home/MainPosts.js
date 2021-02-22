@@ -5,6 +5,15 @@ import { Grid, Typography, Divider, Card, CardMedia } from '@material-ui/core';
 import BlogPost from './BlogPost';
 import Carousel from 'react-material-ui-carousel';
 import './mainPostsStyle.scss';
+import birdcage from '../../mockData/posts/post_1/images/birdcage.jpeg';
+
+function importAll(r) {
+  let images = {};
+  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+  return images;
+}
+
+const images = importAll(require.context(`../../mockData/posts/post_1/images`, false, /\.(png|jpe?g|svg)$/));
 
 const styles = theme => ({
   markdown: {
@@ -18,21 +27,11 @@ const styles = theme => ({
   }
 });
 
-const items = [
-  {
-    Name: "Macbook Pro",
-    Image: "https://source.unsplash.com/featured/?macbook"
-  },
-  {
-    Name: "iPhone",
-    Image: "https://source.unsplash.com/featured/?iphone"
-  }
-]
-
 class MainPosts extends React.Component {
 
   render() {
     const { classes, posts, title } = this.props;
+    var photoList = Object.keys(images);
 
     return (
       <Grid item xs={12} md={12}>
@@ -46,12 +45,12 @@ class MainPosts extends React.Component {
             <Grid container alignItems="center" spacing={5}>
               {index % 2 === 0 ?
                 <>
-                  <Grid item xs={7}>
+                  <Grid item md={7} sm={12}>
                     <BlogPost className={classes.markdown} key={post.substring(0, 40)}>
                       {post}
                     </BlogPost>
                   </Grid>
-                  <Grid item xs={5}>
+                  <Grid item md={5} sm={12}>
                     <Carousel
                       autoPlay={false}
                       navButtonsAlwaysVisible={true}
@@ -59,11 +58,11 @@ class MainPosts extends React.Component {
                       className={classes.carousel}
                     >
                       {
-                        items.map((item, i) =>
+                        photoList.map((item, i) =>
                           <Card raised className="Banner">
                             <CardMedia
                               className="Media"
-                              image={item.Image}
+                              image={images[photoList[i]]}
                             >
                             </CardMedia>
                           </Card>
@@ -74,7 +73,7 @@ class MainPosts extends React.Component {
                 </>
                 :
                 <>
-                  <Grid item xs={5}>
+                  <Grid item md={5} sm={12}>
                     <Carousel
                       autoPlay={false}
                       navButtonsAlwaysVisible={true}
@@ -82,11 +81,11 @@ class MainPosts extends React.Component {
                       className={classes.carousel}
                     >
                       {
-                        items.map((item, i) =>
+                        photoList.map((item, i) =>
                           <Card raised className="Banner">
                             <CardMedia
                               className="Media"
-                              image={item.Image}
+                              image={images[photoList[i]]}
                             >
                             </CardMedia>
                           </Card>
@@ -94,7 +93,7 @@ class MainPosts extends React.Component {
                       }
                     </Carousel>
                   </Grid>
-                  <Grid item xs={7}>
+                  <Grid item md={7} sm={12}>
                     <BlogPost className={classes.markdown} key={post.substring(0, 40)}>
                       {post}
                     </BlogPost>

@@ -21,7 +21,7 @@ class Photography extends React.Component {
 
         return (
             <>
-                <Container maxWidth="fixed">
+                <Container maxWidth="lg">
                     <Header title="french flavour." />
                 </Container>
 

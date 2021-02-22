@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 import {
     Toolbar,
     Typography,
-    Divider
+    Divider,
+    Link
 } from '@material-ui/core';
+import MobileDetect from 'mobile-detect';
 
 const calculateHrMarginLeft = () => {
     let url = window.location.href
@@ -101,6 +103,53 @@ const styles = theme => ({
 
 class Header extends React.Component {
 
+    renderMobileHeader = () => {
+        document.location.href = 'mobile-page.html';
+
+        const { classes } = this.props;
+
+        const sections = [
+            { title: 'Mixes', url: 'mixes'},
+            { title: 'Stories', url: 'stories'},
+            { title: 'Home', url: '/'},
+            { title: 'Photography', url: 'photography'},
+            { title: 'Music', url: 'music'}
+        ]
+
+        return (
+            <Toolbar
+                component="nav"
+                variant="dense"
+                className={classes.toolbarSecondary}
+            >
+            {sections.map((section) => (
+                <Link color="inherit"
+                    noWrap key={section.title}
+                    variant="h6"
+                    href={section.url}
+                    className={classes.toolbarLink}
+                    underline='none' >
+                    { section.title}
+                </Link>
+            ))}
+            </Toolbar>
+        )
+    }
+
+    renderDesktopHeader = () => {
+        const { classes } = this.props;
+        return (
+            <ul className={classes.unorderedList}>
+                <li className={classes.unorderedList}><a className={classes.aComponent} href="mixes">Mixes</a></li>
+                <li className={classes.twoComponent}><a className={classes.aComponent} href="stories">Stories</a></li>
+                <li className={classes.threeComponent}><a className={classes.aComponent} href="/">Home</a></li>
+                <li className={classes.fourComponent}><a className={classes.aComponent} href="photography">Photography</a></li>
+                <li className={classes.fiveComponent}><a className={classes.aComponent} href="music">Music</a></li>
+                <hr className={classes.hrComponent} />
+            </ul>
+        )
+    }
+
     render() {
 
         const { classes, title } = this.props;
@@ -120,27 +169,8 @@ class Header extends React.Component {
                     </Typography>
                 </Toolbar >
                 <Divider />
-                {/* TODO Make use of the sections properly. */}
                 <div className={classes.toolbarSecondary} >
-                    <ul className={classes.unorderedList}>
-                        <li className={classes.unorderedList}><a className={classes.aComponent} href="mixes">Mixes</a></li>
-                        <li className={classes.twoComponent}><a className={classes.aComponent} href="stories">Stories</a></li>
-                        <li className={classes.threeComponent}><a className={classes.aComponent} href="/">Home</a></li>
-                        <li className={classes.fourComponent}><a className={classes.aComponent} href="photography">Photography</a></li>
-                        <li className={classes.fiveComponent}><a className={classes.aComponent} href="music">Music</a></li>
-                        <hr className={classes.hrComponent} />
-                    </ul>
-                    {/* {sections.map((section) => (
-                    <Link color="inherit"
-                        noWrap key={section.title}
-                        variant="h6"
-                        href={section.url}
-                        className={classes.toolbarLink}
-                        underline='none' >
-                        { section.title}
-                    </Link>
-                ))
-                } */}
+                    {this.renderDesktopHeader()}
                 </div>
             </React.Fragment >
         )

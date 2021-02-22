@@ -8,10 +8,8 @@ import PropTypes from 'prop-types';
 import bluewaterMix2 from '../../mockData/images/bluewaterMix2.jpeg';
 
 const styles = theme => ({
-    mainContainer: {
-        position: 'relative',
-        padding: theme.spacing(3),
-        paddingTop: theme.spacing(6)
+    mainGrid: {
+        marginTop: theme.spacing(3),
     },
     mainBackgroundPhoto: {
         position: 'relative',
@@ -35,8 +33,8 @@ const styles = theme => ({
         padding: theme.spacing(3),
         [theme.breakpoints.up('md')]: {
             padding: theme.spacing(6),
-            paddingRight: 0,
         },
+        'text-shadow': '3px 3px #787878'
     },
 });
 
@@ -59,14 +57,13 @@ class Mixes extends React.Component {
                     style={{ backgroundImage: `url(${bluewaterMix2}` }}
                     className={classes.mainBackgroundPhoto}
                 >
-                    <Container maxWidth="fixed" className={classes.imageContainer}>
+                    <Container maxWidth="lg" className={classes.imageContainer}>
                         <Header title="french flavour." />
                     </Container>
 
                     <Container maxWidth="lg">
-                        <div className={classes.overlay} />
                         <Grid container>
-                            <Grid item md={6}>
+                            <Grid item md={6} sm={12}>
                                 <div className={classes.mainFeaturedPostContent}>
                                     <Typography
                                         component="h1"
@@ -86,13 +83,29 @@ class Mixes extends React.Component {
                         </Grid>
                     </Container>
                 </Paper>
-                <Container maxWidth="lg" className={classes.mainContainer}>
+                {/* <Container maxWidth="lg" className={classes.mainContainer}>
                     <Typography variant="h6" gutterBottom>
                         Radio Shows
                     </Typography>
                     <Divider />
                     <br />
                     <WaveformPlayer />
+                </Container> */}
+                <Container maxWidth="lg" className={classes.mainContainer}>
+                    <Typography variant="h6" gutterBottom>
+                        Recent Mixes
+                    </Typography>
+                    <Divider />
+                    <br />
+                    <iframe 
+                        width="560" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/xQ2iyQHtxU0" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                            
+                        </iframe>
                 </Container>
 
                 <Footer

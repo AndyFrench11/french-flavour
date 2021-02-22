@@ -37,6 +37,15 @@ const styles = theme => ({
       padding: theme.spacing(6),
       paddingRight: 0,
     },
+    'text-shadow': '3px 3px #787878'
+  },
+  secondaryPostContent: {
+    position: 'relative',
+    padding: theme.spacing(3),
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(6),
+      paddingRight: 0,
+    },
   },
   logo: {
     marginLeft: '100px',
@@ -56,14 +65,14 @@ class Home extends React.Component {
           style={{ backgroundImage: `url(${MainPhotoUntagged}` }}
           className={classes.mainBackgroundPhoto}
         >
-          <Container maxWidth="fixed" className={classes.imageContainer}>
+          <Container maxWidth="lg" className={classes.imageContainer}>
             <Header title="french flavour." />
           </Container>
 
           <Container maxWidth="lg">
             <div className={classes.overlay} />
             <Grid container>
-              <Grid item md={6}>
+              <Grid item md={6} sm={12}>
                 <div className={classes.mainFeaturedPostContent}>
                   <Typography
                     component="h1"
@@ -85,8 +94,8 @@ class Home extends React.Component {
         </Paper>
         <Container maxWidth="lg">
           <Grid container alignItems="center" spacing={5}>
-            <Grid item md={6}>
-              <div className={classes.mainFeaturedPostContent}>
+            <Grid item sm={12} lg={6}>
+              <div className={classes.secondaryPostContent}>
                 <Typography
                   component="h1"
                   variant="h4"
@@ -101,24 +110,24 @@ class Home extends React.Component {
                   Welcome to french flavour.
               </Typography>
                 <Typography variant="h6" color="inherit" paragraph>
-                  My name is Andy and this place is a home to bring together the passions of my life in a hope to bring people closer together.
+                  My name is Andy and this place looks to be a home to bring together the passions of my life in a hope to bring people together.
               </Typography>
                 <Typography variant="h6" color="inherit" paragraph>
-                  This website is a home for music, photography and ultimately, storytelling, in an attempt to share the tales of some fantastic human beings.
+                  This website is a home for music, photography and ultimately, storytelling, to share the tales of some fantastic human beings.
               </Typography>
                 <Typography variant="h6" color="inherit" paragraph>
-                  I hope you enjoy!
+                  Thank you for coming, and I hope you enjoy!
               </Typography>
               </div>
             </Grid>
-            <Grid item md={6}>
-              <Card raised className="Banner">
-                <CardMedia
-                  className="Media"
-                  image={frenchFlavourLogoResized}
-                >
-                </CardMedia>
-              </Card>
+            <Grid item sm={12} lg={6}>
+                <Card raised className="Banner">
+                  <CardMedia
+                    className="Media"
+                    image={frenchFlavourLogoResized}
+                  >
+                  </CardMedia>
+                </Card>
             </Grid>
           </Grid>
 

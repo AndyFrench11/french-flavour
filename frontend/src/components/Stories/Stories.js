@@ -3,13 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { Container, Grid, Paper, Divider, Typography } from '@material-ui/core';
 import Header from '../Shared/Header';
 import Footer from '../Shared/Footer';
-import post1 from '../../mockData/posts/NovemberPost1';
-import post2 from '../../mockData/posts/NovemberPost2';
-import post3 from '../../mockData/posts/NovemberPost3';
-import post4 from '../../mockData/posts/NovemberPost4';
-import post5 from '../../mockData/posts/NovemberPost5';
-import post6 from '../../mockData/posts/NovemberPost6';
-import post7 from '../../mockData/posts/NovemberPost7';
+import post1 from '../../mockData/posts/post_1/post_content';
 import MainPosts from '../Home/MainPosts';
 import PropTypes from 'prop-types';
 import birdcagePhoto from '../../mockData/images/birdcagePhoto.jpeg';
@@ -40,8 +34,9 @@ const styles = theme => ({
         padding: theme.spacing(3),
         [theme.breakpoints.up('md')]: {
             padding: theme.spacing(6),
-            paddingRight: 0,
         },
+        'text-shadow': '3px 3px #787878'
+
     },
 });
 
@@ -50,8 +45,7 @@ class Stories extends React.Component {
     render() {
 
         const { classes } = this.props;
-        const posts = [post1, post2, post3, post4, post5, post6, post7];
-        posts.reverse()
+        const posts = [post1];
 
         return (
             <>
@@ -59,14 +53,13 @@ class Stories extends React.Component {
                     style={{ backgroundImage: `url(${birdcagePhoto}` }}
                     className={classes.mainBackgroundPhoto}
                 >
-                    <Container maxWidth="fixed" className={classes.imageContainer}>
+                    <Container maxWidth="lg" className={classes.imageContainer}>
                         <Header title="french flavour." />
                     </Container>
 
                     <Container maxWidth="lg">
-                        <div className={classes.overlay} />
                         <Grid container>
-                            <Grid item md={6}>
+                            <Grid item md={6} sm={12}>
                                 <div className={classes.mainFeaturedPostContent}>
                                     <Typography
                                         component="h1"

@@ -83,7 +83,7 @@ class FooterMediaPlayer extends React.Component {
           <Grid container alignItems="center">
             <Grid item xs={12}>
               <Typography variant="h6" align="center" gutterBottom>
-                  Dark and Smooth Drum & Bass · ActiveFM 88.6 - Midnight Marauders Show
+                  {'Dark and Smooth Drum & Bass · ActiveFM 88.6 - Midnight Marauders Show'}
               </Typography>
             </Grid>
           </Grid>

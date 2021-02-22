@@ -21,7 +21,7 @@ class Music extends React.Component {
 
         return (
             <>
-                <Container maxWidth="fixed">
+                <Container maxWidth="lg">
                     <Header title="french flavour." />
                 </Container>
                 <Container maxWidth="lg" className={classes.mainContainer}>

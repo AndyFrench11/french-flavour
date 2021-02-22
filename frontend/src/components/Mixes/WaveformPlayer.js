@@ -18,7 +18,7 @@ const styles = theme => ({
     },
     showName: {
         marginTop: '5px'
-    }
+    },
 })
 
 class WaveformPlayer extends React.Component {
@@ -27,7 +27,7 @@ class WaveformPlayer extends React.Component {
         super(props)
         this.state = {
             wavesurfer: null,
-            isLoading: true
+            isLoading: true,
         }
     }
 
@@ -70,11 +70,15 @@ class WaveformPlayer extends React.Component {
         wavesurfer.on('audioprocess', () => {
             this.props.dispatch(updateCurrentFooterMedia(wavesurfer.getCurrentTime(), wavesurfer.getDuration()))
         })
+
+        wavesurfer.on('ready', () => {
+            this.setState({ isLoading: false  })
+        })
         
         // Load the given mix/song from the input
         wavesurfer.load(ActiveFMSet);
 
-        this.setState({ wavesurfer: wavesurfer, isLoading: false })
+        this.setState({ wavesurfer: wavesurfer })
 
         // Send functions to state
         this.props.dispatch(generateWaveformHelperFunctions(this.setVolume, this.toggleSongPlaying, this.seekThroughSong))
@@ -155,13 +159,13 @@ class WaveformPlayer extends React.Component {
                         <Grid item xs={11}>
                             <Grid item>
                                 <Typography variant="h6" gutterBottom>
-                                    Dark and Smooth Drum & Bass
+                                    {'Dark and Smooth Drum & Bass'}
                                 </Typography>
                             </Grid>
                             <Divider/>
                             <Grid item>
                                 <Typography variant="h6" gutterBottom className={classes.showName}>
-                                    ActiveFM 88.6 - Midnight Marauders Show
+                                    {'ActiveFM 88.6 - Midnight Marauders Show'}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -171,7 +175,7 @@ class WaveformPlayer extends React.Component {
                             <div id='waveform'>
                                 {
                                     isLoading ? 
-                                        <CircularProgress color="inherit"></CircularProgress>
+                                        <CircularProgress color="inherit"/>
                                     :
                                         null
                                 }
