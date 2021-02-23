@@ -5,7 +5,6 @@ import { Grid, Typography, Divider, Card, CardMedia } from '@material-ui/core';
 import BlogPost from './BlogPost';
 import Carousel from 'react-material-ui-carousel';
 import './mainPostsStyle.scss';
-import birdcage from '../../mockData/posts/post_1/images/birdcage.jpeg';
 
 function importAll(r) {
   let images = {};

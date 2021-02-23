@@ -5,9 +5,9 @@ import {
     Toolbar,
     Typography,
     Divider,
-    Link
+    Link,
+    Grid
 } from '@material-ui/core';
-import MobileDetect from 'mobile-detect';
 
 const calculateHrMarginLeft = () => {
     let url = window.location.href
@@ -45,49 +45,17 @@ const styles = theme => ({
         padding: theme.spacing(1),
         flexShrink: 0,
     },
-    unorderedList: {
-        display: 'inline',
-        textAlign: 'center',
-        paddingInlineStart: '0px',
-        "&:hover ~ hr": {
-            marginLeft: '0%'
-        }
-    },
-    twoComponent: {
-        display: 'inline',
-        textAlign: 'center',
+    linkComponent: {
+        display: 'inline-block',
+        padding: '.75rem 0',
+        fontSize: '16px',
         "&:hover ~ hr": {
             marginLeft: '20%'
         }
+
     },
-    threeComponent: {
-        display: 'inline',
-        textAlign: 'center',
-        "&:hover ~ hr": {
-            marginLeft: '40%'
-        }
-    },
-    fourComponent: {
-        display: 'inline',
-        textAlign: 'center',
-        "&:hover ~ hr": {
-            marginLeft: '60%'
-        }
-    },
-    fiveComponent: {
-        display: 'inline',
-        textAlign: 'center',
-        "&:hover ~ hr": {
-            marginLeft: '80%'
-        }
-    },
-    aComponent: {
-        display: 'inline-block',
-        width: '20%',
-        padding: '.75rem 0',
-        textDecoration: 'none',
-        color: '#FFFFFF',
-        fontSize: '16px'
+    gridComponent: {
+        'text-align': 'center',
     },
     hrComponent: {
         height: '.1rem',
@@ -98,55 +66,46 @@ const styles = theme => ({
         border: 'none',
         transition: '.3s ease-in-out'
     }
+    
 
 });
 
 class Header extends React.Component {
 
-    renderMobileHeader = () => {
-        document.location.href = 'mobile-page.html';
-
-        const { classes } = this.props;
-
-        const sections = [
-            { title: 'Mixes', url: 'mixes'},
-            { title: 'Stories', url: 'stories'},
-            { title: 'Home', url: '/'},
-            { title: 'Photography', url: 'photography'},
-            { title: 'Music', url: 'music'}
-        ]
-
-        return (
-            <Toolbar
-                component="nav"
-                variant="dense"
-                className={classes.toolbarSecondary}
-            >
-            {sections.map((section) => (
-                <Link color="inherit"
-                    noWrap key={section.title}
-                    variant="h6"
-                    href={section.url}
-                    className={classes.toolbarLink}
-                    underline='none' >
-                    { section.title}
-                </Link>
-            ))}
-            </Toolbar>
-        )
-    }
-
     renderDesktopHeader = () => {
         const { classes } = this.props;
+
         return (
-            <ul className={classes.unorderedList}>
-                <li className={classes.unorderedList}><a className={classes.aComponent} href="mixes">Mixes</a></li>
-                <li className={classes.twoComponent}><a className={classes.aComponent} href="stories">Stories</a></li>
-                <li className={classes.threeComponent}><a className={classes.aComponent} href="/">Home</a></li>
-                <li className={classes.fourComponent}><a className={classes.aComponent} href="photography">Photography</a></li>
-                <li className={classes.fiveComponent}><a className={classes.aComponent} href="music">Music</a></li>
-                <hr className={classes.hrComponent} />
-            </ul>
+            <>
+                <Grid container justify="center" alighnItems="center" spacing={5}>
+                    <Grid item xs={2} lg={2} className={classes.gridComponent}>
+                        <Link color="inherit" noWrap underline='none' className={classes.linkComponent} href='mixes'>
+                            Mixes
+                        </Link>
+                    </Grid>
+                    <Grid item xs={2} lg={2} className={classes.gridComponent}>
+                        <Link color="inherit" noWrap underline='none' className={classes.linkComponent} href='stories'>
+                            Stories
+                        </Link>
+                    </Grid>
+                    <Grid item xs={2} lg={2} className={classes.gridComponent}>
+                        <Link color="inherit" noWrap underline='none' className={classes.linkComponent} href='/'>
+                            Home
+                        </Link>
+                    </Grid>
+                    <Grid item xs={2} lg={2} className={classes.gridComponent}>
+                        <Link color="inherit" noWrap underline='none' className={classes.linkComponent} href='photography'>
+                            Photos
+                        </Link>
+                    </Grid>
+                    <Grid item xs={2} lg={2} className={classes.gridComponent}>
+                        <Link color="inherit" noWrap underline='none' className={classes.linkComponent} href='music'>
+                            Music
+                        </Link>
+                    </Grid>
+                </Grid>
+                <hr className={classes.hrComponent}/>
+            </>
         )
     }
 
@@ -169,9 +128,8 @@ class Header extends React.Component {
                     </Typography>
                 </Toolbar >
                 <Divider />
-                <div className={classes.toolbarSecondary} >
-                    {this.renderDesktopHeader()}
-                </div>
+                {this.renderDesktopHeader()}
+                
             </React.Fragment >
         )
     }
@@ -179,12 +137,6 @@ class Header extends React.Component {
 
 // Determine the property types
 Header.propTypes = {
-    // sections: PropTypes.arrayOf(
-    //     PropTypes.shape({
-    //         title: PropTypes.string.isRequired,
-    //         url: PropTypes.string.isRequired,
-    //     }),
-    // ).isRequired,
     title: PropTypes.string.isRequired,
     classes: PropTypes.object.isRequired
 };
