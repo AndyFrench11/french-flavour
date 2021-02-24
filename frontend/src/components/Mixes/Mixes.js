@@ -6,6 +6,8 @@ import { Container, Typography, Divider, Paper, Grid } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import bluewaterMix2 from '../../mockData/images/bluewaterMix2.jpeg';
+import VideoMixPosts from './VideoMixPosts';
+import post1 from '../../mockData/mixes/bluewaterMix';
 
 const styles = theme => ({
     mainGrid: {
@@ -50,6 +52,7 @@ class Mixes extends React.Component {
     render() {
 
         const { classes } = this.props;
+        const posts = [post1]
 
         return (
             <>
@@ -76,7 +79,7 @@ class Mixes extends React.Component {
                                     <Divider />
                                     <br />
                                     <Typography variant="h5" color="inherit" paragraph>
-                                        Look no further! Come down below!
+                                        Well boy do we have a treat for you...
                                     </Typography>
                                 </div>
                             </Grid>
@@ -91,28 +94,11 @@ class Mixes extends React.Component {
                     <br />
                     <WaveformPlayer />
                 </Container> */}
-                <Container maxWidth="lg" className={classes.mainContainer}>
-                    <Typography variant="h6" gutterBottom>
-                        Recent Mixes
-                    </Typography>
-                    <Divider />
-                    <br />
-                    <Grid container>
-                        <Grid item md={6} sm={12} xs={12}>
-                        <iframe 
-                            width="400" 
-                            height="300" 
-                            src="https://www.youtube.com/embed/xQ2iyQHtxU0" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                                
-                        </iframe>
-                        </Grid>
+                <Container maxWidth="lg">
+                    <Grid container spacing={5} className={classes.mainGrid}>
+                        <VideoMixPosts title="Recent Mixes" posts={posts} />
                     </Grid>
-
                 </Container>
-
                 <Footer
                     title="Thanks for coming!"
                     description="Hope you enjoyed it!"

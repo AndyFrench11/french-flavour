@@ -86,6 +86,7 @@ class Home extends React.Component {
                   <br />
                   <Typography variant="h5" color="inherit" paragraph>
                     Come, stay a while!
+
                 </Typography>
                 </div>
               </Grid>
@@ -110,13 +111,13 @@ class Home extends React.Component {
                   Welcome to french flavour.
               </Typography>
                 <Typography variant="h6" color="inherit" paragraph>
-                  My name is Andy and this place looks to be a home to bring together the passions of my life in a hope to bring people together.
+                  A home of music, photography and storytelling, looking to share the tales of some fantastic human beings, whilst grooving to some tasteful tunes!
+              </Typography>
+              <Typography variant="h6" color="inherit" paragraph>
+                  This place brings together multiple passions of mine into one place, in a hope to connect like-minded friendly faces.
               </Typography>
                 <Typography variant="h6" color="inherit" paragraph>
-                  This website is a home for music, photography and ultimately, storytelling, to share the tales of some fantastic human beings.
-              </Typography>
-                <Typography variant="h6" color="inherit" paragraph>
-                  Thank you for coming, and I hope you enjoy!
+                 My name is Andy, thank you for coming and I hope you enjoy!
               </Typography>
               </div>
             </Grid>

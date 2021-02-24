@@ -67,12 +67,12 @@ class Stories extends React.Component {
                                         color="inherit"
                                         gutterBottom
                                     >
-                                        What's happening around these parts you say? Fun fun fun things I tell ya!
+                                        What's happening around these parts you say? Fun fun things I tell ya!
                                     </Typography>
                                     <Divider />
                                     <br />
                                     <Typography variant="h5" color="inherit" paragraph>
-                                        Check it out below! 
+                                        Come have a cheeky read below...
                                     </Typography>
                                 </div>
                             </Grid>
