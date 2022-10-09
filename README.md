@@ -1,5 +1,5 @@
 # french-flavour
-> Ever heard of [frenchflavour.co.nz](frenchflavour.co.nz)? Go have a look 😏
+> Website to showcase all of my DJ'ing and photography work. 🔊 📸
 
 ## Repo structure
 - `frontend`: Repo for the frontend for the website
